@@ -11,11 +11,11 @@ import SwiftUI
 struct PrelogView: View {
     
     @State var isShowingOrderSelection: Bool = false
-    @StateObject var vm = PrelogViewModel()
+    @StateObject var viewModel = PrelogViewModel()
     
     var body: some View {
         VStack {
-            if let image = vm.image {
+            if let image = viewModel.image {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
@@ -30,19 +30,19 @@ struct PrelogView: View {
                     .padding(.horizontal)
             }
             Button("CAMERA") {
-                vm.source = "camera"
-                vm.showPicker = true
+                viewModel.source = "camera"
+                viewModel.showPicker = true
             }
             Button("PICTURES") {
-                vm.source = "library"
-                vm.showPicker = true
+                viewModel.source = "library"
+                viewModel.showPicker = true
             }
             Button("GO TO ORDER FLOW") {
                 isShowingOrderSelection = true
             }
         }
-        .sheet(isPresented: $vm.showPicker) {
-            ImagePicker(sourceType: vm.source == "library" ? .photoLibrary : .camera, selectedImage: $vm.image)
+        .fullScreenCover(isPresented: $viewModel.showPicker) {
+            ImagePicker(sourceType: viewModel.source == "library" ? .photoLibrary : .camera, selectedImage: $viewModel.image)
         }
         .fullScreenCover(isPresented: $isShowingOrderSelection) {
             OrderSelectionView(isShowingOrderSelection: $isShowingOrderSelection)
