@@ -1,0 +1,654 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8400A91528C941F8002E7AAA /* PrinterooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400A91428C941F8002E7AAA /* PrinterooApp.swift */; };
+		8400A91728C941F8002E7AAA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400A91628C941F8002E7AAA /* ContentView.swift */; };
+		8400A91928C941FD002E7AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8400A91828C941FD002E7AAA /* Assets.xcassets */; };
+		8400A91C28C941FD002E7AAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8400A91B28C941FD002E7AAA /* Preview Assets.xcassets */; };
+		8400A92628C941FD002E7AAA /* PrinterooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400A92528C941FD002E7AAA /* PrinterooTests.swift */; };
+		8400A93028C941FD002E7AAA /* PrinterooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400A92F28C941FD002E7AAA /* PrinterooUITests.swift */; };
+		8400A93228C941FD002E7AAA /* PrinterooUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8400A93128C941FD002E7AAA /* PrinterooUITestsLaunchTests.swift */; };
+		84248B1028C967A3001582D0 /* PrelogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B0F28C967A3001582D0 /* PrelogView.swift */; };
+		84248B1328C967D7001582D0 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B1228C967D7001582D0 /* CustomColors.swift */; };
+		84248B1728C96881001582D0 /* Color+Hexcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B1628C96881001582D0 /* Color+Hexcode.swift */; };
+		84248B1E28CA4A50001582D0 /* OrderSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B1D28CA4A50001582D0 /* OrderSelectionView.swift */; };
+		84248B2328CA4E4E001582D0 /* CheckoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B2228CA4E4E001582D0 /* CheckoutItem.swift */; };
+		84248B2528CA6727001582D0 /* View+isHidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B2428CA6727001582D0 /* View+isHidden.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8400A92228C941FD002E7AAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8400A90928C941F8002E7AAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8400A91028C941F8002E7AAA;
+			remoteInfo = Printeroo;
+		};
+		8400A92C28C941FD002E7AAA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8400A90928C941F8002E7AAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8400A91028C941F8002E7AAA;
+			remoteInfo = Printeroo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8400A91128C941F8002E7AAA /* Printeroo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Printeroo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8400A91428C941F8002E7AAA /* PrinterooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterooApp.swift; sourceTree = "<group>"; };
+		8400A91628C941F8002E7AAA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8400A91828C941FD002E7AAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8400A91B28C941FD002E7AAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8400A92128C941FD002E7AAA /* PrinterooTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrinterooTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8400A92528C941FD002E7AAA /* PrinterooTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterooTests.swift; sourceTree = "<group>"; };
+		8400A92B28C941FD002E7AAA /* PrinterooUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrinterooUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8400A92F28C941FD002E7AAA /* PrinterooUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterooUITests.swift; sourceTree = "<group>"; };
+		8400A93128C941FD002E7AAA /* PrinterooUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterooUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		84248B0F28C967A3001582D0 /* PrelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrelogView.swift; sourceTree = "<group>"; };
+		84248B1228C967D7001582D0 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		84248B1628C96881001582D0 /* Color+Hexcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hexcode.swift"; sourceTree = "<group>"; };
+		84248B1D28CA4A50001582D0 /* OrderSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSelectionView.swift; sourceTree = "<group>"; };
+		84248B2228CA4E4E001582D0 /* CheckoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItem.swift; sourceTree = "<group>"; };
+		84248B2428CA6727001582D0 /* View+isHidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+isHidden.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8400A90E28C941F8002E7AAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8400A91E28C941FD002E7AAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8400A92828C941FD002E7AAA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8400A90828C941F8002E7AAA = {
+			isa = PBXGroup;
+			children = (
+				8400A91328C941F8002E7AAA /* Printeroo */,
+				8400A92428C941FD002E7AAA /* PrinterooTests */,
+				8400A92E28C941FD002E7AAA /* PrinterooUITests */,
+				8400A91228C941F8002E7AAA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8400A91228C941F8002E7AAA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8400A91128C941F8002E7AAA /* Printeroo.app */,
+				8400A92128C941FD002E7AAA /* PrinterooTests.xctest */,
+				8400A92B28C941FD002E7AAA /* PrinterooUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8400A91328C941F8002E7AAA /* Printeroo */ = {
+			isa = PBXGroup;
+			children = (
+				84248B2128CA4DCD001582D0 /* Components */,
+				84248B1A28CA4476001582D0 /* Utils */,
+				84248B1528C96813001582D0 /* Extensions */,
+				84248B1428C967DC001582D0 /* Constants */,
+				84248B1128C967B9001582D0 /* Views */,
+				8400A91428C941F8002E7AAA /* PrinterooApp.swift */,
+				8400A91628C941F8002E7AAA /* ContentView.swift */,
+				8400A91828C941FD002E7AAA /* Assets.xcassets */,
+				8400A91A28C941FD002E7AAA /* Preview Content */,
+			);
+			path = Printeroo;
+			sourceTree = "<group>";
+		};
+		8400A91A28C941FD002E7AAA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8400A91B28C941FD002E7AAA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8400A92428C941FD002E7AAA /* PrinterooTests */ = {
+			isa = PBXGroup;
+			children = (
+				8400A92528C941FD002E7AAA /* PrinterooTests.swift */,
+			);
+			path = PrinterooTests;
+			sourceTree = "<group>";
+		};
+		8400A92E28C941FD002E7AAA /* PrinterooUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8400A92F28C941FD002E7AAA /* PrinterooUITests.swift */,
+				8400A93128C941FD002E7AAA /* PrinterooUITestsLaunchTests.swift */,
+			);
+			path = PrinterooUITests;
+			sourceTree = "<group>";
+		};
+		84248B1128C967B9001582D0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84248B0F28C967A3001582D0 /* PrelogView.swift */,
+				84248B1D28CA4A50001582D0 /* OrderSelectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		84248B1428C967DC001582D0 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				84248B1228C967D7001582D0 /* CustomColors.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		84248B1528C96813001582D0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84248B1628C96881001582D0 /* Color+Hexcode.swift */,
+				84248B2428CA6727001582D0 /* View+isHidden.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84248B1A28CA4476001582D0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		84248B2128CA4DCD001582D0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				84248B2228CA4E4E001582D0 /* CheckoutItem.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8400A91028C941F8002E7AAA /* Printeroo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8400A93528C941FD002E7AAA /* Build configuration list for PBXNativeTarget "Printeroo" */;
+			buildPhases = (
+				8400A90D28C941F8002E7AAA /* Sources */,
+				8400A90E28C941F8002E7AAA /* Frameworks */,
+				8400A90F28C941F8002E7AAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Printeroo;
+			productName = Printeroo;
+			productReference = 8400A91128C941F8002E7AAA /* Printeroo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8400A92028C941FD002E7AAA /* PrinterooTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8400A93828C941FD002E7AAA /* Build configuration list for PBXNativeTarget "PrinterooTests" */;
+			buildPhases = (
+				8400A91D28C941FD002E7AAA /* Sources */,
+				8400A91E28C941FD002E7AAA /* Frameworks */,
+				8400A91F28C941FD002E7AAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8400A92328C941FD002E7AAA /* PBXTargetDependency */,
+			);
+			name = PrinterooTests;
+			productName = PrinterooTests;
+			productReference = 8400A92128C941FD002E7AAA /* PrinterooTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8400A92A28C941FD002E7AAA /* PrinterooUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8400A93B28C941FD002E7AAA /* Build configuration list for PBXNativeTarget "PrinterooUITests" */;
+			buildPhases = (
+				8400A92728C941FD002E7AAA /* Sources */,
+				8400A92828C941FD002E7AAA /* Frameworks */,
+				8400A92928C941FD002E7AAA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8400A92D28C941FD002E7AAA /* PBXTargetDependency */,
+			);
+			name = PrinterooUITests;
+			productName = PrinterooUITests;
+			productReference = 8400A92B28C941FD002E7AAA /* PrinterooUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8400A90928C941F8002E7AAA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					8400A91028C941F8002E7AAA = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					8400A92028C941FD002E7AAA = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 8400A91028C941F8002E7AAA;
+					};
+					8400A92A28C941FD002E7AAA = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 8400A91028C941F8002E7AAA;
+					};
+				};
+			};
+			buildConfigurationList = 8400A90C28C941F8002E7AAA /* Build configuration list for PBXProject "Printeroo" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8400A90828C941F8002E7AAA;
+			productRefGroup = 8400A91228C941F8002E7AAA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8400A91028C941F8002E7AAA /* Printeroo */,
+				8400A92028C941FD002E7AAA /* PrinterooTests */,
+				8400A92A28C941FD002E7AAA /* PrinterooUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8400A90F28C941F8002E7AAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8400A91C28C941FD002E7AAA /* Preview Assets.xcassets in Resources */,
+				8400A91928C941FD002E7AAA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8400A91F28C941FD002E7AAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8400A92928C941FD002E7AAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8400A90D28C941F8002E7AAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8400A91728C941F8002E7AAA /* ContentView.swift in Sources */,
+				8400A91528C941F8002E7AAA /* PrinterooApp.swift in Sources */,
+				84248B1728C96881001582D0 /* Color+Hexcode.swift in Sources */,
+				84248B1328C967D7001582D0 /* CustomColors.swift in Sources */,
+				84248B2528CA6727001582D0 /* View+isHidden.swift in Sources */,
+				84248B1E28CA4A50001582D0 /* OrderSelectionView.swift in Sources */,
+				84248B2328CA4E4E001582D0 /* CheckoutItem.swift in Sources */,
+				84248B1028C967A3001582D0 /* PrelogView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8400A91D28C941FD002E7AAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8400A92628C941FD002E7AAA /* PrinterooTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8400A92728C941FD002E7AAA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8400A93028C941FD002E7AAA /* PrinterooUITests.swift in Sources */,
+				8400A93228C941FD002E7AAA /* PrinterooUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8400A92328C941FD002E7AAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8400A91028C941F8002E7AAA /* Printeroo */;
+			targetProxy = 8400A92228C941FD002E7AAA /* PBXContainerItemProxy */;
+		};
+		8400A92D28C941FD002E7AAA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8400A91028C941F8002E7AAA /* Printeroo */;
+			targetProxy = 8400A92C28C941FD002E7AAA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8400A93328C941FD002E7AAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8400A93428C941FD002E7AAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8400A93628C941FD002E7AAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Printeroo/Preview Content\"";
+				DEVELOPMENT_TEAM = X9NZ672UUT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Printeroo requires camera permissions to function";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = keithc.Printeroo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8400A93728C941FD002E7AAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Printeroo/Preview Content\"";
+				DEVELOPMENT_TEAM = X9NZ672UUT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Printeroo requires camera permissions to function";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = keithc.Printeroo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8400A93928C941FD002E7AAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X9NZ672UUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = keithcestaro.PrinterooTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Printeroo.app/Printeroo";
+			};
+			name = Debug;
+		};
+		8400A93A28C941FD002E7AAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X9NZ672UUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = keithcestaro.PrinterooTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Printeroo.app/Printeroo";
+			};
+			name = Release;
+		};
+		8400A93C28C941FD002E7AAA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X9NZ672UUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = keithcestaro.PrinterooUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Printeroo;
+			};
+			name = Debug;
+		};
+		8400A93D28C941FD002E7AAA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X9NZ672UUT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = keithcestaro.PrinterooUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Printeroo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8400A90C28C941F8002E7AAA /* Build configuration list for PBXProject "Printeroo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8400A93328C941FD002E7AAA /* Debug */,
+				8400A93428C941FD002E7AAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8400A93528C941FD002E7AAA /* Build configuration list for PBXNativeTarget "Printeroo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8400A93628C941FD002E7AAA /* Debug */,
+				8400A93728C941FD002E7AAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8400A93828C941FD002E7AAA /* Build configuration list for PBXNativeTarget "PrinterooTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8400A93928C941FD002E7AAA /* Debug */,
+				8400A93A28C941FD002E7AAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8400A93B28C941FD002E7AAA /* Build configuration list for PBXNativeTarget "PrinterooUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8400A93C28C941FD002E7AAA /* Debug */,
+				8400A93D28C941FD002E7AAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8400A90928C941F8002E7AAA /* Project object */;
+}
