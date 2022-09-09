@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-final class PrelogViewModel: ObservableObject {
+final class CameraViewModel: ObservableObject {
     @Published var image = UIImage()
     @Published var showPicker = false
     @Published var source = "library"

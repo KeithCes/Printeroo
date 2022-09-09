@@ -11,76 +11,117 @@ import AVFoundation
 
 struct CameraView: View {
     
+    @State var isShowingOrderSelection: Bool = false
+    
     @StateObject var camera = CameraModel()
     
-    @Binding var isShowingCamera: Bool
-    @Binding var selectedImage: UIImage
+    @StateObject var viewModel = CameraViewModel()
     
     var body: some View {
         ZStack {
             CameraPreview(camera: camera).ignoresSafeArea(.all, edges: .all)
             
             VStack {
-                Button(action: {self.isShowingCamera.toggle()}, label: {
-                    Image(systemName: "x.circle")
-                        .foregroundColor(.black)
-                        .padding()
-                        .background(.white)
-                        .clipShape(Circle())
-                })
-                .padding(.leading, 10)
-                
-                if camera.isTaken {
-                    HStack {
-                        
-                        Spacer()
-                        
+                HStack {
+                    if camera.isTaken {
                         Button(action: camera.reTake, label: {
-                            Image(systemName: "arrow.triangle.2.circlepath.camera")
+                            Image(systemName: "x.circle")
                                 .foregroundColor(.black)
                                 .padding()
                                 .background(.white)
                                 .clipShape(Circle())
                         })
-                        .padding(.trailing, 10)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 30)
                     }
+                    
+                    Button(action: camera.switchCamera, label: {
+                        Image(systemName: "arrow.triangle.2.circlepath.camera")
+                            .foregroundColor(.black)
+                            .padding()
+                            .background(.white)
+                            .clipShape(Circle())
+                    })
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(.trailing, 30)
                 }
-                
                 Spacer()
                 
                 HStack {
                     if camera.isTaken {
                         Button(action: {
-                            if !camera.isSaved{
+                            if !camera.isSaved {
                                 camera.savePic()
-                                self.selectedImage = camera.selectedImage
                             }
                         }, label: {
-                            Text(camera.isSaved ? "Saved" : "Save")
+                            Image(systemName: "square.and.arrow.down")
+                                .foregroundColor(.black)
+                                .padding()
+                                .background(.white)
+                                .clipShape(Circle())
+                        })
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 30)
+                        
+                        Button(action: {
+                            camera.continueWithPic()
+                            viewModel.image = camera.selectedImage
+                            self.isShowingOrderSelection.toggle()
+                        }, label: {
+                            Text("Continue →")
                                 .foregroundColor(.black)
                                 .fontWeight(.semibold)
                                 .padding(.vertical, 10)
                                 .padding(.horizontal, 20)
-                                    .background(.white)
-                                    .clipShape(Capsule())
-                            })
-                        Spacer()
+                                .background(.white)
+                                .clipShape(Capsule())
+                        })
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.trailing, 30)
                     }
                     else {
-                        Button(action: camera.takePic, label: {
-                            ZStack {
-                                Circle()
-                                    .fill(.white)
-                                    .frame(width: 40, height: 40)
-                                Circle()
-                                    .stroke(.white, lineWidth: 2)
-                                    .frame(width: 50, height: 50)
-                            }
-                        })
+                        HStack {
+                            Button(action: camera.takePic, label: {
+                                ZStack {
+                                    Circle()
+                                        .fill(.white)
+                                        .frame(width: 40, height: 40)
+                                    Circle()
+                                        .stroke(.white, lineWidth: 2)
+                                        .frame(width: 50, height: 50)
+                                }
+                            })
+                            .padding(.trailing, 20)
+                            
+                            Button(action: {
+                                viewModel.image = UIImage()
+                                viewModel.showPicker.toggle()
+                            }, label: {
+                                ZStack {
+                                    Rectangle()
+                                        .fill(.white)
+                                        .frame(width: 12, height: 30)
+                                    Rectangle()
+                                        .stroke(.white, lineWidth: 2)
+                                        .frame(width: 20, height: 40)
+                                }
+                            })
+                        }
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(.leading, 45)
                     }
                 }
-                .frame(height: 75)
             }
+        }
+        .fullScreenCover(isPresented: $viewModel.showPicker, onDismiss: {
+            if viewModel.image != UIImage() {
+                self.isShowingOrderSelection.toggle()
+            }
+        }) {
+            ImagePicker(sourceType: viewModel.source == "library" ? .photoLibrary : .camera, selectedImage: $viewModel.image)
+        }
+        .fullScreenCover(isPresented: $isShowingOrderSelection) {
+            OrderSelectionView(isShowingOrderSelection: $isShowingOrderSelection, selectedImage: $viewModel.image)
         }
         .onAppear(perform: {
             camera.Check()
@@ -127,6 +168,86 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         }
     }
     
+    func switchCamera() {
+        
+        guard let currentCameraInput: AVCaptureInput = self.session.inputs.first else {
+            return
+        }
+        
+        self.session.beginConfiguration()
+        self.session.removeInput(currentCameraInput)
+        
+        do {
+            if let input = currentCameraInput as? AVCaptureDeviceInput {
+                if input.device.position == .back {
+                    if let device = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .front) {
+                        let input = try AVCaptureDeviceInput(device: device)
+                        
+                        if self.session.canAddInput(input) {
+                            self.session.addInput(input)
+                        }
+                        
+                        if self.session.canAddOutput(self.output) {
+                            self.session.addOutput(self.output)
+                        }
+                        
+                        self.session.commitConfiguration()
+                    }
+                    else if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) {
+                        let input = try AVCaptureDeviceInput(device: device)
+                        
+                        if self.session.canAddInput(input) {
+                            self.session.addInput(input)
+                        }
+                        
+                        if self.session.canAddOutput(self.output) {
+                            self.session.addOutput(self.output)
+                        }
+                        
+                        self.session.commitConfiguration()
+                    }
+                    else {
+                        fatalError("Missing expected back camera")
+                    }
+                }
+                else {
+                    if let device = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .back) {
+                        let input = try AVCaptureDeviceInput(device: device)
+                        
+                        if self.session.canAddInput(input) {
+                            self.session.addInput(input)
+                        }
+                        
+                        if self.session.canAddOutput(self.output) {
+                            self.session.addOutput(self.output)
+                        }
+                        
+                        self.session.commitConfiguration()
+                    }
+                    else if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
+                        let input = try AVCaptureDeviceInput(device: device)
+                        
+                        if self.session.canAddInput(input) {
+                            self.session.addInput(input)
+                        }
+                        
+                        if self.session.canAddOutput(self.output) {
+                            self.session.addOutput(self.output)
+                        }
+                        
+                        self.session.commitConfiguration()
+                    }
+                    else {
+                        fatalError("Missing expected back camera")
+                    }
+                }
+            }
+        }
+        catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     func setUp() {
         do {
             self.session.beginConfiguration()
@@ -163,7 +284,7 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
                 fatalError("Missing expected back camera")
             }
             
-
+            
             
         }
         catch {
@@ -221,7 +342,6 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     func savePic() {
         let image = UIImage(data: self.picData)!
         
-        // save image
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         
         self.selectedImage = image
@@ -229,6 +349,12 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         self.isSaved = true
         
         print("saved successfully...")
+    }
+    
+    func continueWithPic() {
+        let image = UIImage(data: self.picData)!
+        
+        self.selectedImage = image
     }
 }
 
@@ -251,5 +377,5 @@ struct CameraPreview: UIViewRepresentable {
     func updateUIView(_ uiView: UIView, context: Context) {
         
     }
-
+    
 }

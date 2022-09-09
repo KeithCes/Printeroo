@@ -11,6 +11,7 @@ import SwiftUI
 struct OrderSelectionView: View {
     
     @Binding var isShowingOrderSelection: Bool
+    @Binding var selectedImage: UIImage
     
     var body: some View {
         VStack {
@@ -28,16 +29,16 @@ struct OrderSelectionView: View {
             
             ScrollView {
                 HStack {
-                    CheckoutItem(imageName: "Test", price: 0, itemName: "Test1")
-                    CheckoutItem(imageName: "Test", price: 0, itemName: "Test2")
+                    CheckoutItem(image: selectedImage, price: 0, itemName: "Test1")
+                    CheckoutItem(image: selectedImage, price: 0, itemName: "Test2")
                 }
                 HStack {
-                    CheckoutItem(imageName: "Test", price: 0, itemName: "Test3")
-                    CheckoutItem(imageName: "Test", price: 0, itemName: "Test4")
+                    CheckoutItem(image: selectedImage, price: 0, itemName: "Test3")
+                    CheckoutItem(image: selectedImage, price: 0, itemName: "Test4")
                 }
                 HStack {
-                    CheckoutItem(imageName: "Test", price: 0, itemName: "Test5")
-                    CheckoutItem(imageName: "Test", price: 0, itemName: "Test6")
+                    CheckoutItem(image: selectedImage, price: 0, itemName: "Test5")
+                    CheckoutItem(image: selectedImage, price: 0, itemName: "Test6")
                 }
             }
             .background() {

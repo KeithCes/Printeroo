@@ -10,14 +10,14 @@ import SwiftUI
 
 struct CheckoutItem: View {
     
-    private var imageName: String
+    private var image: UIImage
     private var price: Double
     private var itemName: String
     
     @State var isSelected: Bool = false
     
-    init(imageName: String, price: Double, itemName: String) {
-        self.imageName = imageName
+    init(image: UIImage, price: Double, itemName: String) {
+        self.image = image
         self.price = price
         self.itemName = itemName
     }
@@ -28,7 +28,7 @@ struct CheckoutItem: View {
                 .foregroundColor(.white.opacity(0.5))
                 .frame(width: 172, height: 315)
                 .cornerRadius(10)
-            Image(self.imageName)
+            Image(uiImage: self.image)
                 .resizable()
                 .frame(width: 150, height: 270)
                 .cornerRadius(10)
