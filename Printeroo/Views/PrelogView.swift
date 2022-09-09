@@ -11,6 +11,8 @@ import SwiftUI
 struct PrelogView: View {
     
     @State var isShowingOrderSelection: Bool = false
+    @State var isShowingCamera: Bool = false
+    
     @StateObject var viewModel = PrelogViewModel()
     
     var body: some View {
@@ -30,15 +32,14 @@ struct PrelogView: View {
                     .padding(.horizontal)
             }
             Button("CAMERA") {
-                viewModel.source = "camera"
-                viewModel.showPicker = true
+                self.isShowingCamera = true
             }
             Button("PICTURES") {
                 viewModel.source = "library"
                 viewModel.showPicker = true
             }
             Button("GO TO ORDER FLOW") {
-                isShowingOrderSelection = true
+                self.isShowingOrderSelection = true
             }
         }
         .fullScreenCover(isPresented: $viewModel.showPicker) {
@@ -46,6 +47,9 @@ struct PrelogView: View {
         }
         .fullScreenCover(isPresented: $isShowingOrderSelection) {
             OrderSelectionView(isShowingOrderSelection: $isShowingOrderSelection)
+        }
+        .fullScreenCover(isPresented: $isShowingCamera) {
+            CameraView(isShowingCamera: $isShowingCamera, selectedImage: $viewModel.image)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(CustomColors.sand)

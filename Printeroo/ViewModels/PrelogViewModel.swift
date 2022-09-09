@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 final class PrelogViewModel: ObservableObject {
-    @Published var image: UIImage?
+    @Published var image = UIImage()
     @Published var showPicker = false
     @Published var source = "library"
 }

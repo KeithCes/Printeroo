@@ -13,11 +13,23 @@ struct CameraView: View {
     
     @StateObject var camera = CameraModel()
     
+    @Binding var isShowingCamera: Bool
+    @Binding var selectedImage: UIImage
+    
     var body: some View {
         ZStack {
             CameraPreview(camera: camera).ignoresSafeArea(.all, edges: .all)
             
             VStack {
+                Button(action: {self.isShowingCamera.toggle()}, label: {
+                    Image(systemName: "x.circle")
+                        .foregroundColor(.black)
+                        .padding()
+                        .background(.white)
+                        .clipShape(Circle())
+                })
+                .padding(.leading, 10)
+                
                 if camera.isTaken {
                     HStack {
                         
@@ -38,15 +50,20 @@ struct CameraView: View {
                 
                 HStack {
                     if camera.isTaken {
-                        Button(action: {if !camera.isSaved{camera.savePic()}}, label: {
+                        Button(action: {
+                            if !camera.isSaved{
+                                camera.savePic()
+                                self.selectedImage = camera.selectedImage
+                            }
+                        }, label: {
                             Text(camera.isSaved ? "Saved" : "Save")
                                 .foregroundColor(.black)
                                 .fontWeight(.semibold)
                                 .padding(.vertical, 10)
                                 .padding(.horizontal, 20)
-                                .background(.white)
-                                .clipShape(Capsule())
-                        })
+                                    .background(.white)
+                                    .clipShape(Capsule())
+                            })
                         Spacer()
                     }
                     else {
@@ -88,6 +105,8 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     @Published var isSaved = false
     
     @Published var picData = Data(count: 0)
+    
+    @Published var selectedImage = UIImage()
     
     func Check() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -204,6 +223,8 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         
         // save image
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        
+        self.selectedImage = image
         
         self.isSaved = true
         
