@@ -23,6 +23,7 @@
 		84248B2A28CA75ED001582D0 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B2928CA75ED001582D0 /* CameraViewModel.swift */; };
 		84248B2F28CA7AB2001582D0 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B2E28CA7AB2001582D0 /* ImagePicker.swift */; };
 		84248B3128CAB3F1001582D0 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B3028CAB3F1001582D0 /* CameraView.swift */; };
+		84248B3728CBBC3A001582D0 /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B3628CBBC3A001582D0 /* CameraPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		84248B2E28CA7AB2001582D0 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		84248B3028CAB3F1001582D0 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		84248B3228CBA9A8001582D0 /* notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = notes.md; sourceTree = "<group>"; };
+		84248B3628CBBC3A001582D0 /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,15 +116,15 @@
 		8400A91328C941F8002E7AAA /* Printeroo */ = {
 			isa = PBXGroup;
 			children = (
+				84248B3528CBBC1F001582D0 /* WrappedUIKit */,
 				84248B2B28CA7808001582D0 /* Models */,
 				84248B2828CA75E0001582D0 /* ViewModels */,
-				84248B2128CA4DCD001582D0 /* Components */,
+				84248B1128C967B9001582D0 /* Views */,
 				84248B1A28CA4476001582D0 /* Utils */,
+				84248B2128CA4DCD001582D0 /* Components */,
 				84248B1528C96813001582D0 /* Extensions */,
 				84248B1428C967DC001582D0 /* Constants */,
-				84248B1128C967B9001582D0 /* Views */,
 				8400A91428C941F8002E7AAA /* PrinterooApp.swift */,
-				84248B2E28CA7AB2001582D0 /* ImagePicker.swift */,
 				8400A91628C941F8002E7AAA /* ContentView.swift */,
 				8400A91828C941FD002E7AAA /* Assets.xcassets */,
 				8400A91A28C941FD002E7AAA /* Preview Content */,
@@ -210,6 +212,15 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		84248B3528CBBC1F001582D0 /* WrappedUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				84248B2E28CA7AB2001582D0 /* ImagePicker.swift */,
+				84248B3628CBBC3A001582D0 /* CameraPreview.swift */,
+			);
+			path = WrappedUIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +362,7 @@
 				84248B1E28CA4A50001582D0 /* OrderSelectionView.swift in Sources */,
 				84248B3128CAB3F1001582D0 /* CameraView.swift in Sources */,
 				84248B2F28CA7AB2001582D0 /* ImagePicker.swift in Sources */,
+				84248B3728CBBC3A001582D0 /* CameraPreview.swift in Sources */,
 				84248B2328CA4E4E001582D0 /* CheckoutItem.swift in Sources */,
 				84248B1028C967A3001582D0 /* PrelogView.swift in Sources */,
 			);
