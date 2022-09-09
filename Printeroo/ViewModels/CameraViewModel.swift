@@ -25,6 +25,10 @@ final class CameraViewModel:  NSObject, ObservableObject, AVCapturePhotoCaptureD
     @Published var picData = Data(count: 0)
     @Published var selectedImage = UIImage()
     
+    @Published var retakeTapped = false
+    
+    @Published var isShowingOrderSelection: Bool = false
+    
     
     func checkCameraPermissions() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -131,7 +135,9 @@ final class CameraViewModel:  NSObject, ObservableObject, AVCapturePhotoCaptureD
             self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
             
             DispatchQueue.main.async {
-                self.session.stopRunning()
+                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
+                    self.session.stopRunning()
+                }
             }
             
             DispatchQueue.main.async {
@@ -152,6 +158,7 @@ final class CameraViewModel:  NSObject, ObservableObject, AVCapturePhotoCaptureD
                     self.isTaken.toggle()
                 }
                 self.isSaved = false
+                self.retakeTapped = false
             }
         }
     }

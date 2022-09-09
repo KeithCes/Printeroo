@@ -11,8 +11,6 @@ import AVFoundation
 
 struct CameraView: View {
     
-    @State var isShowingOrderSelection: Bool = false
-    
     @StateObject var viewModel = CameraViewModel()
     
     var body: some View {
@@ -20,8 +18,11 @@ struct CameraView: View {
             CameraPreview(viewModel: viewModel).ignoresSafeArea(.all, edges: .all)
             VStack {
                 HStack {
-                    if viewModel.isTaken {
-                        Button(action: viewModel.reTake, label: {
+                    if viewModel.isTaken && !viewModel.retakeTapped {
+                        Button(action: {
+                            viewModel.retakeTapped = true
+                            viewModel.reTake()
+                        }, label: {
                             Image(systemName: "x.circle")
                                 .foregroundColor(.black)
                                 .padding()
@@ -63,7 +64,7 @@ struct CameraView: View {
                         
                         Button(action: {
                             viewModel.continueWithPic()
-                            self.isShowingOrderSelection.toggle()
+                            viewModel.isShowingOrderSelection.toggle()
                         }, label: {
                             Text("Continue →")
                                 .foregroundColor(.black)
@@ -112,13 +113,13 @@ struct CameraView: View {
         }
         .fullScreenCover(isPresented: $viewModel.showPicker, onDismiss: {
             if viewModel.selectedImage != UIImage() {
-                self.isShowingOrderSelection.toggle()
+                viewModel.isShowingOrderSelection.toggle()
             }
         }) {
             ImagePicker(sourceType: viewModel.source == "library" ? .photoLibrary : .camera, selectedImage: $viewModel.selectedImage)
         }
-        .fullScreenCover(isPresented: $isShowingOrderSelection) {
-            OrderSelectionView(isShowingOrderSelection: $isShowingOrderSelection, selectedImage: $viewModel.selectedImage)
+        .fullScreenCover(isPresented: $viewModel.isShowingOrderSelection) {
+            OrderSelectionView(isShowingOrderSelection: $viewModel.isShowingOrderSelection, selectedImage: $viewModel.selectedImage)
         }
         .onAppear(perform: {
             viewModel.checkCameraPermissions()
