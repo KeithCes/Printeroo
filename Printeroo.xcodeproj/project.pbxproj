@@ -24,6 +24,18 @@
 		8416168928CCF146002D959A /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 8416168828CCF146002D959A /* FirebaseMessaging */; };
 		8416168B28CCF146002D959A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8416168A28CCF146002D959A /* FirebaseStorage */; };
 		8416168D28CCF1B2002D959A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8416168C28CCF1B2002D959A /* GoogleService-Info.plist */; };
+		8416168F28CD1E5C002D959A /* PrelogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416168E28CD1E5B002D959A /* PrelogViewModel.swift */; };
+		8416169128CD1F22002D959A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416169028CD1F22002D959A /* LoginView.swift */; };
+		8416169328CD1F78002D959A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416169228CD1F78002D959A /* LoginViewModel.swift */; };
+		8416169528CD1FB9002D959A /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416169428CD1FB8002D959A /* Toast.swift */; };
+		8416169728CD2002002D959A /* CreateAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416169628CD2002002D959A /* CreateAccountViewModel.swift */; };
+		8416169928CD2050002D959A /* CreateAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416169828CD2050002D959A /* CreateAccountView.swift */; };
+		8416169B28CD2098002D959A /* CustomTextbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416169A28CD2098002D959A /* CustomTextbox.swift */; };
+		8416169D28CD2122002D959A /* View+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416169C28CD2122002D959A /* View+Placeholder.swift */; };
+		8416169F28CD215F002D959A /* CustomTitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8416169E28CD215F002D959A /* CustomTitleText.swift */; };
+		841616A128CD2216002D959A /* CustomDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616A028CD2216002D959A /* CustomDimensions.swift */; };
+		841616A328CD2265002D959A /* CustomSecureTextbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616A228CD2265002D959A /* CustomSecureTextbox.swift */; };
+		841616A528CD22CE002D959A /* StateCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616A428CD22CE002D959A /* StateCodes.swift */; };
 		84248B1028C967A3001582D0 /* PrelogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B0F28C967A3001582D0 /* PrelogView.swift */; };
 		84248B1328C967D7001582D0 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B1228C967D7001582D0 /* CustomColors.swift */; };
 		84248B1728C96881001582D0 /* Color+Hexcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B1628C96881001582D0 /* Color+Hexcode.swift */; };
@@ -67,6 +79,18 @@
 		8400A92F28C941FD002E7AAA /* PrinterooUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterooUITests.swift; sourceTree = "<group>"; };
 		8400A93128C941FD002E7AAA /* PrinterooUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinterooUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8416168C28CCF1B2002D959A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8416168E28CD1E5B002D959A /* PrelogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrelogViewModel.swift; sourceTree = "<group>"; };
+		8416169028CD1F22002D959A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		8416169228CD1F78002D959A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		8416169428CD1FB8002D959A /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		8416169628CD2002002D959A /* CreateAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewModel.swift; sourceTree = "<group>"; };
+		8416169828CD2050002D959A /* CreateAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountView.swift; sourceTree = "<group>"; };
+		8416169A28CD2098002D959A /* CustomTextbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextbox.swift; sourceTree = "<group>"; };
+		8416169C28CD2122002D959A /* View+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Placeholder.swift"; sourceTree = "<group>"; };
+		8416169E28CD215F002D959A /* CustomTitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitleText.swift; sourceTree = "<group>"; };
+		841616A028CD2216002D959A /* CustomDimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDimensions.swift; sourceTree = "<group>"; };
+		841616A228CD2265002D959A /* CustomSecureTextbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureTextbox.swift; sourceTree = "<group>"; };
+		841616A428CD22CE002D959A /* StateCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateCodes.swift; sourceTree = "<group>"; };
 		84248B0F28C967A3001582D0 /* PrelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrelogView.swift; sourceTree = "<group>"; };
 		84248B1228C967D7001582D0 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		84248B1628C96881001582D0 /* Color+Hexcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hexcode.swift"; sourceTree = "<group>"; };
@@ -185,10 +209,12 @@
 		84248B1128C967B9001582D0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				84248B0F28C967A3001582D0 /* PrelogView.swift */,
 				84248B1D28CA4A50001582D0 /* OrderSelectionView.swift */,
 				84248B3828CBE303001582D0 /* OrderConfirmView.swift */,
 				84248B3028CAB3F1001582D0 /* CameraView.swift */,
+				8416169028CD1F22002D959A /* LoginView.swift */,
+				8416169828CD2050002D959A /* CreateAccountView.swift */,
+				84248B0F28C967A3001582D0 /* PrelogView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,6 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				84248B1228C967D7001582D0 /* CustomColors.swift */,
+				841616A028CD2216002D959A /* CustomDimensions.swift */,
+				841616A428CD22CE002D959A /* StateCodes.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -206,6 +234,7 @@
 			children = (
 				84248B1628C96881001582D0 /* Color+Hexcode.swift */,
 				84248B2428CA6727001582D0 /* View+isHidden.swift */,
+				8416169C28CD2122002D959A /* View+Placeholder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -213,6 +242,7 @@
 		84248B1A28CA4476001582D0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8416169428CD1FB8002D959A /* Toast.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -221,6 +251,9 @@
 			isa = PBXGroup;
 			children = (
 				84248B2228CA4E4E001582D0 /* CheckoutItem.swift */,
+				8416169A28CD2098002D959A /* CustomTextbox.swift */,
+				8416169E28CD215F002D959A /* CustomTitleText.swift */,
+				841616A228CD2265002D959A /* CustomSecureTextbox.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -230,6 +263,9 @@
 			children = (
 				84248B2928CA75ED001582D0 /* CameraViewModel.swift */,
 				84248B3C28CBE83D001582D0 /* OrderSelectionViewModel.swift */,
+				8416169228CD1F78002D959A /* LoginViewModel.swift */,
+				8416169628CD2002002D959A /* CreateAccountViewModel.swift */,
+				8416168E28CD1E5B002D959A /* PrelogViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -401,13 +437,25 @@
 				8400A91728C941F8002E7AAA /* ContentView.swift in Sources */,
 				8400A91528C941F8002E7AAA /* PrinterooApp.swift in Sources */,
 				84248B1728C96881001582D0 /* Color+Hexcode.swift in Sources */,
+				8416168F28CD1E5C002D959A /* PrelogViewModel.swift in Sources */,
+				8416169528CD1FB9002D959A /* Toast.swift in Sources */,
+				841616A528CD22CE002D959A /* StateCodes.swift in Sources */,
 				84248B1328C967D7001582D0 /* CustomColors.swift in Sources */,
 				84248B2528CA6727001582D0 /* View+isHidden.swift in Sources */,
 				84248B1E28CA4A50001582D0 /* OrderSelectionView.swift in Sources */,
+				8416169328CD1F78002D959A /* LoginViewModel.swift in Sources */,
 				84248B3128CAB3F1001582D0 /* CameraView.swift in Sources */,
 				84248B2F28CA7AB2001582D0 /* ImagePicker.swift in Sources */,
+				8416169928CD2050002D959A /* CreateAccountView.swift in Sources */,
+				8416169728CD2002002D959A /* CreateAccountViewModel.swift in Sources */,
+				8416169D28CD2122002D959A /* View+Placeholder.swift in Sources */,
 				84248B3728CBBC3A001582D0 /* CameraPreview.swift in Sources */,
+				8416169B28CD2098002D959A /* CustomTextbox.swift in Sources */,
 				84248B2328CA4E4E001582D0 /* CheckoutItem.swift in Sources */,
+				8416169128CD1F22002D959A /* LoginView.swift in Sources */,
+				841616A128CD2216002D959A /* CustomDimensions.swift in Sources */,
+				8416169F28CD215F002D959A /* CustomTitleText.swift in Sources */,
+				841616A328CD2265002D959A /* CustomSecureTextbox.swift in Sources */,
 				84248B1028C967A3001582D0 /* PrelogView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
