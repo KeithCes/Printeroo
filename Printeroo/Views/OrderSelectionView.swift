@@ -13,6 +13,8 @@ struct OrderSelectionView: View {
     @Binding var isShowingOrderSelection: Bool
     @Binding var selectedImage: UIImage
     
+    @StateObject var viewModel: OrderSelectionViewModel = OrderSelectionViewModel()
+    
     var body: some View {
         VStack {
             Button(action: {
@@ -29,28 +31,29 @@ struct OrderSelectionView: View {
             
             ScrollView {
                 HStack {
-                    CheckoutItem(image: selectedImage, price: 0, itemName: "Test1")
-                    CheckoutItem(image: selectedImage, price: 0, itemName: "Test2")
+                    CheckoutItem(itemID: 0, image: selectedImage, price: 5, itemName: "Test1", selectedItems: $viewModel.selectedItems)
+                    CheckoutItem(itemID: 1, image: selectedImage, price: 3.99, itemName: "Test2", selectedItems: $viewModel.selectedItems)
                 }
                 HStack {
-                    CheckoutItem(image: selectedImage, price: 0, itemName: "Test3")
-                    CheckoutItem(image: selectedImage, price: 0, itemName: "Test4")
+                    CheckoutItem(itemID: 2, image: selectedImage, price: 69, itemName: "Test3", selectedItems: $viewModel.selectedItems)
+                    CheckoutItem(itemID: 3, image: selectedImage, price: 69.69, itemName: "Test4", selectedItems: $viewModel.selectedItems)
                 }
                 HStack {
-                    CheckoutItem(image: selectedImage, price: 0, itemName: "Test5")
-                    CheckoutItem(image: selectedImage, price: 0, itemName: "Test6")
+                    CheckoutItem(itemID: 4, image: selectedImage, price: 15, itemName: "Test5", selectedItems: $viewModel.selectedItems)
+                    CheckoutItem(itemID: 5, image: selectedImage, price: 0, itemName: "Test6", selectedItems: $viewModel.selectedItems)
                 }
             }
             .background() {
                 Rectangle()
-                    .foregroundColor(.red.opacity(0.5))
+                    .foregroundColor(.white.opacity(0.3))
                     .cornerRadius(10)
             }
             .cornerRadius(10)
             .padding()
             
             Button("ORDER") {
-                // TODO: transition to confirm order + cc page
+                // TODO: make sure at least one item is slected or hide/disbale button
+                viewModel.isShowingOrderConfirm.toggle()
             }
             .font(.system(size: 30, weight: .bold, design: .rounded))
             .foregroundColor(.white)
@@ -60,6 +63,9 @@ struct OrderSelectionView: View {
                 .cornerRadius(15)
             )
             .padding(.bottom, 50)
+        }
+        .fullScreenCover(isPresented: $viewModel.isShowingOrderConfirm) {
+            OrderConfirmView(isShowingOrderConfirm: $viewModel.isShowingOrderConfirm, selectedItems: $viewModel.selectedItems)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(CustomColors.sand)

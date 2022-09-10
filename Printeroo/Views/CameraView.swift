@@ -99,9 +99,11 @@ struct CameraView: View {
                                     Rectangle()
                                         .fill(.white)
                                         .frame(width: 12, height: 30)
+                                        .cornerRadius(1)
                                     Rectangle()
                                         .stroke(.white, lineWidth: 2)
                                         .frame(width: 20, height: 40)
+                                        .cornerRadius(1)
                                 }
                             })
                         }

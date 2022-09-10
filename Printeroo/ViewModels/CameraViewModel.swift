@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import AVFoundation
 
-final class CameraViewModel:  NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
+final class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
 
     @Published var showPicker = false
     @Published var source = "library"
@@ -107,7 +107,7 @@ final class CameraViewModel:  NSObject, ObservableObject, AVCapturePhotoCaptureD
         do {
             self.session.beginConfiguration()
             
-            if let device = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .back) ?? AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)  {
+            if let device = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .front) ?? AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front)  {
                 
                 let input = try AVCaptureDeviceInput(device: device)
                 
