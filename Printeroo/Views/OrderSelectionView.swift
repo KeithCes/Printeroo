@@ -29,18 +29,36 @@ struct OrderSelectionView: View {
             .padding(.leading, 30)
             .padding(.top, 50)
             
+            ZStack {
+                Rectangle()
+                    .foregroundColor(.white.opacity(0.1))
+                    .frame(width: CustomDimensions.width, height: 250)
+                    .cornerRadius(10)
+                VStack {
+                    CustomTitleText(labelText: "SELECTED PICTURE: ", fontSize: 28)
+                        .padding(.top, 10)
+                    
+                    Image(uiImage: self.selectedImage)
+                        .resizable()
+                        .frame(width: 100, height: 180)
+                        .cornerRadius(10)
+                        .padding(.bottom, 10)
+                }
+            }
+
+            
             ScrollView {
                 HStack {
-                    CheckoutItem(itemID: 0, image: selectedImage, price: 5, itemName: "Test1", selectedItems: $viewModel.selectedItems)
-                    CheckoutItem(itemID: 1, image: selectedImage, price: 3.99, itemName: "Test2", selectedItems: $viewModel.selectedItems)
+                    CheckoutItem(itemID: 0, image: UIImage(named: "SinglePolaroid") ?? UIImage(), price: 5, itemName: "Polaroid", selectedItems: $viewModel.selectedItems)
+                    CheckoutItem(itemID: 1, image: UIImage(named: "MultiPolaroid") ?? UIImage(), price: 3.99, itemName: "Polaroid (5)", selectedItems: $viewModel.selectedItems)
                 }
                 HStack {
-                    CheckoutItem(itemID: 2, image: selectedImage, price: 69, itemName: "Test3", selectedItems: $viewModel.selectedItems)
-                    CheckoutItem(itemID: 3, image: selectedImage, price: 69.69, itemName: "Test4", selectedItems: $viewModel.selectedItems)
+                    CheckoutItem(itemID: 2, image: UIImage(named: "GlossPhoto") ?? UIImage(), price: 69, itemName: "Gloss Photo", selectedItems: $viewModel.selectedItems)
+                    CheckoutItem(itemID: 3, image: UIImage(named: "GlossPhotoFrame") ?? UIImage(), price: 69.69, itemName: "Framed Gloss Photo", selectedItems: $viewModel.selectedItems)
                 }
                 HStack {
-                    CheckoutItem(itemID: 4, image: selectedImage, price: 15, itemName: "Test5", selectedItems: $viewModel.selectedItems)
-                    CheckoutItem(itemID: 5, image: selectedImage, price: 0, itemName: "Test6", selectedItems: $viewModel.selectedItems)
+                    CheckoutItem(itemID: 4, image: UIImage(named: "Mug") ?? UIImage(), price: 15, itemName: "Printed Mug", selectedItems: $viewModel.selectedItems)
+                    CheckoutItem(itemID: 5, image: UIImage(named: "Test") ?? UIImage(), price: 0, itemName: "Test", selectedItems: $viewModel.selectedItems)
                 }
             }
             .background() {

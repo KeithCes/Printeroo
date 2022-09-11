@@ -14,6 +14,11 @@ struct CheckoutItem: View {
     private var image: UIImage
     private var price: Double
     private var itemName: String
+    
+    private var imageWidth: CGFloat
+    private var imageHeight: CGFloat
+    private var viewWidth: CGFloat
+    private var viewHeight: CGFloat
 
     @State var isSelected: Bool = false
     
@@ -26,17 +31,22 @@ struct CheckoutItem: View {
         self.price = price
         self.itemName = itemName
         self._selectedItems = selectedItems
+        
+        self.viewWidth = 172
+        self.viewHeight = self.viewWidth
+        self.imageWidth = self.viewWidth - 22
+        self.imageHeight = self.viewHeight - 48
     }
     
     var body: some View {
         ZStack {
             Rectangle()
                 .foregroundColor(.white.opacity(0.3))
-                .frame(width: 172, height: 318)
+                .frame(width: self.viewWidth, height: self.viewHeight)
                 .cornerRadius(10)
             Image(uiImage: self.image)
                 .resizable()
-                .frame(width: 150, height: 270)
+                .frame(width: self.imageWidth, height: self.imageHeight)
                 .cornerRadius(10)
                 .padding(.bottom, 20)
                 .blur(radius: !self.isSelected ? 0 : 2)
@@ -50,10 +60,10 @@ struct CheckoutItem: View {
                     Spacer()
                     ZStack {
                         Rectangle()
-                            .foregroundColor(CustomColors.sand.opacity(0.5))
+                            .foregroundColor(CustomColors.sand.opacity(0.8))
                             .cornerRadius(10)
                         Text("$" + String(format: "%.2f", self.price))
-                            .foregroundColor(CustomColors.darkGray)
+                            .foregroundColor(.white)
                             .fontWeight(.semibold)
                     }
                     .frame(width: 63, height: 42)
@@ -69,7 +79,7 @@ struct CheckoutItem: View {
                         .foregroundColor(CustomColors.darkGray)
                         .fontWeight(.semibold)
                 }
-                .frame(width: 172, height: 34)
+                .frame(width: self.viewWidth, height: 34)
             }
 
         }
