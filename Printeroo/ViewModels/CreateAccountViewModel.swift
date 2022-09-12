@@ -129,9 +129,8 @@ final class CreateAccountViewModel: ObservableObject {
         }
     }
     
-    /*
     func createStripeCustomer(completion: @escaping (String?) -> Void) {
-        let url = URL(string: "https://bringers-nodejs.vercel.app/onboard-customer")!
+        let url = URL(string: "https://printeroo-vercel.vercel.app/onboard-customer")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -158,7 +157,6 @@ final class CreateAccountViewModel: ObservableObject {
             completion(customerID)
         }.resume()
     }
-     */
     
     func checkValidEmail(email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"

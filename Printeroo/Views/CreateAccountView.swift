@@ -138,22 +138,15 @@ struct CreateAccountView: View {
                     viewModel.checkPostErrorToast()
                     
                     if viewModel.checkIfCreateInfoValid() {
-                        
-                        /*
                         viewModel.createStripeCustomer { customerID in
                             guard let stripeCustomerID = customerID else {
                                 return
                             }
-                         
-                         
                             DispatchQueue.main.async {
                                 viewModel.stripeCustomerID = stripeCustomerID
-                         */
                                 viewModel.createAccount()
-                                /*
                             }
                         }
-                         */
                     }
                 }
                 .padding(EdgeInsets(top: 35, leading: 20, bottom: 35, trailing: 20))
