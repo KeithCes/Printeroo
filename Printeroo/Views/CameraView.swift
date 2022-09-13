@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import AVFoundation
+import Mantis
 
 struct CameraView: View {
     
@@ -35,6 +36,20 @@ struct CameraView: View {
                     
                     Button(action: viewModel.switchCamera, label: {
                         Image(systemName: "arrow.triangle.2.circlepath.camera")
+                            .foregroundColor(.black)
+                            .padding()
+                            .background(.white)
+                            .clipShape(Circle())
+                    })
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(.trailing, 30)
+                }
+                
+                Spacer()
+                
+                if viewModel.isTaken {
+                    Button(action: {viewModel.isShowingEditor.toggle()}, label: {
+                        Image(systemName: "crop")
                             .foregroundColor(.black)
                             .padding()
                             .background(.white)
@@ -123,8 +138,65 @@ struct CameraView: View {
         .fullScreenCover(isPresented: $viewModel.isShowingOrderSelection) {
             OrderSelectionView(isShowingOrderSelection: $viewModel.isShowingOrderSelection, selectedImage: $viewModel.selectedImage)
         }
+        .fullScreenCover(isPresented: $viewModel.isShowingEditor) {
+            ImageEditor(image: $viewModel.selectedImage, isShowingEditor: $viewModel.isShowingEditor, imageData: $viewModel.picData)
+        }
         .onAppear(perform: {
             viewModel.checkCameraPermissions()
         })
+    }
+}
+
+struct ImageEditor: UIViewControllerRepresentable {
+    
+    typealias Coordinator = ImageEditorCoordinator
+    @Binding var image: UIImage
+    @Binding var isShowingEditor: Bool
+    @Binding var imageData: Data
+ 
+    func makeCoordinator() -> Coordinator {
+        return ImageEditorCoordinator(image: $image, isShowingEditor: $isShowingEditor)
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
+    }
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ImageEditor>) -> Mantis.CropViewController {
+        let editor = Mantis.cropViewController(image: UIImage(data: imageData)!)
+        editor.delegate = context.coordinator
+        return editor
+    }
+}
+
+class ImageEditorCoordinator: NSObject, CropViewControllerDelegate {
+    
+    @Binding var image: UIImage
+    @Binding var isShowingEditor: Bool
+    
+    init(image: Binding<UIImage>, isShowingEditor: Binding<Bool>) {
+        self._image = image
+        self._isShowingEditor = isShowingEditor
+    }
+    
+    func cropViewControllerDidBeginResize(_ cropViewController: CropViewController) {
+        
+    }
+    
+    func cropViewControllerDidEndResize(_ cropViewController: CropViewController, original: UIImage, cropInfo: CropInfo) {
+        
+    }
+    
+    func cropViewControllerDidCrop(_ cropViewController: CropViewController, cropped: UIImage, transformation: Transformation, cropInfo: CropInfo) {
+        self.image = cropped
+        self.isShowingEditor = false
+    }
+    
+    func cropViewControllerDidFailToCrop(_ cropViewController: CropViewController, original: UIImage) {
+        
+    }
+    
+    func cropViewControllerDidCancel(_ cropViewController: CropViewController, original: UIImage) {
+        self.isShowingEditor = false
     }
 }

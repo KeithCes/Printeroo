@@ -41,6 +41,7 @@
 		841616B128CFBA20002D959A /* StripeCardScan in Frameworks */ = {isa = PBXBuildFile; productRef = 841616B028CFBA20002D959A /* StripeCardScan */; };
 		841616B328CFBA20002D959A /* StripeFinancialConnections in Frameworks */ = {isa = PBXBuildFile; productRef = 841616B228CFBA20002D959A /* StripeFinancialConnections */; };
 		841616B528CFBA20002D959A /* StripeIdentity in Frameworks */ = {isa = PBXBuildFile; productRef = 841616B428CFBA20002D959A /* StripeIdentity */; };
+		841616BA28CFF849002D959A /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = 841616B928CFF849002D959A /* Mantis */; };
 		84248B1028C967A3001582D0 /* PrelogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B0F28C967A3001582D0 /* PrelogView.swift */; };
 		84248B1328C967D7001582D0 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B1228C967D7001582D0 /* CustomColors.swift */; };
 		84248B1728C96881001582D0 /* Color+Hexcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B1628C96881001582D0 /* Color+Hexcode.swift */; };
@@ -116,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841616BA28CFF849002D959A /* Mantis in Frameworks */,
 				8416168928CCF146002D959A /* FirebaseMessaging in Frameworks */,
 				8416168528CCF146002D959A /* FirebaseDatabaseSwift in Frameworks */,
 				841616B328CFBA20002D959A /* StripeFinancialConnections in Frameworks */,
@@ -327,6 +329,7 @@
 				841616B028CFBA20002D959A /* StripeCardScan */,
 				841616B228CFBA20002D959A /* StripeFinancialConnections */,
 				841616B428CFBA20002D959A /* StripeIdentity */,
+				841616B928CFF849002D959A /* Mantis */,
 			);
 			productName = Printeroo;
 			productReference = 8400A91128C941F8002E7AAA /* Printeroo.app */;
@@ -403,6 +406,7 @@
 			packageReferences = (
 				8416167928CCF146002D959A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				841616AB28CFBA20002D959A /* XCRemoteSwiftPackageReference "stripe-ios" */,
+				841616B828CFF849002D959A /* XCRemoteSwiftPackageReference "Mantis" */,
 			);
 			productRefGroup = 8400A91228C941F8002E7AAA /* Products */;
 			projectDirPath = "";
@@ -819,6 +823,14 @@
 				minimumVersion = 22.0.0;
 			};
 		};
+		841616B828CFF849002D959A /* XCRemoteSwiftPackageReference "Mantis" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/guoyingtao/Mantis";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -891,6 +903,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 841616AB28CFBA20002D959A /* XCRemoteSwiftPackageReference "stripe-ios" */;
 			productName = StripeIdentity;
+		};
+		841616B928CFF849002D959A /* Mantis */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 841616B828CFF849002D959A /* XCRemoteSwiftPackageReference "Mantis" */;
+			productName = Mantis;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
