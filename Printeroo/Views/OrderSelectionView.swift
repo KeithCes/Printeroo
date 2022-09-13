@@ -85,7 +85,7 @@ struct OrderSelectionView: View {
             .padding(.bottom, 50)
         }
         .fullScreenCover(isPresented: $viewModel.isShowingOrderConfirm) {
-            OrderConfirmView(isShowingOrderConfirm: $viewModel.isShowingOrderConfirm, selectedItems: $viewModel.selectedItems)
+            OrderConfirmView(isShowingOrderConfirm: $viewModel.isShowingOrderConfirm, selectedItems: $viewModel.selectedItems, selectedImage: $selectedImage)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(CustomColors.sand)

@@ -16,6 +16,8 @@ struct OrderConfirmView: View {
     @Binding var isShowingOrderConfirm: Bool
     @Binding var selectedItems: [Int: [String: Any]]
     
+    @Binding var selectedImage: UIImage
+    
     
     var body: some View {
         VStack {
@@ -103,6 +105,7 @@ struct OrderConfirmView: View {
                 viewModel.itemNames.append(item["itemName"] as! String)
             }
             viewModel.getUserInfo()
+            viewModel.selectedImage = self.selectedImage
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(CustomColors.sand)

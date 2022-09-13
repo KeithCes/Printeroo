@@ -10,6 +10,7 @@ import SwiftUI
 import Stripe
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 final class OrderConfirmViewModel: ObservableObject {
     
@@ -25,6 +26,8 @@ final class OrderConfirmViewModel: ObservableObject {
     
     @Published var isOrderComplete: Bool = false
     
+    @Published var selectedImage: UIImage = UIImage()
+    
     
     func sendOrderFirebase() {
         let ref = Database.database().reference()
@@ -37,9 +40,29 @@ final class OrderConfirmViewModel: ObservableObject {
         
         let orderID = UUID().uuidString
         
+        
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let orderImagePath = "orders/" + orderID + "/" + "orderImage.png"
+        let orderImageRef = storageRef.child(orderImagePath)
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/png"
+        
+        guard let data: Data = self.selectedImage.jpegData(compressionQuality: 0.20) else {
+            return
+        }
+        
+        orderImageRef.putData(data, metadata: nil) { (metadata, error) in
+            guard let _ = metadata else {
+                // error occurred
+                return
+            }
+        }
+        
         let orderDetails = [
             "itemNames": self.itemNames,
-            "imageURL": "",
+            "imagePath": orderImagePath,
             "userID": userID,
             "totalCost": self.totalCost,
             "dateOfCreation": currentDateString,
