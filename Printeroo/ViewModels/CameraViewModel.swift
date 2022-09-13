@@ -135,6 +135,7 @@ final class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDe
         DispatchQueue.global(qos: .background).async {
             self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
             
+            // strange that this is needed...
             DispatchQueue.main.async {
                 Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
                     self.session.stopRunning()

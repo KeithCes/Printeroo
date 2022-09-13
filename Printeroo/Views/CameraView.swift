@@ -135,10 +135,17 @@ struct CameraView: View {
         }) {
             ImagePicker(sourceType: viewModel.source == "library" ? .photoLibrary : .camera, selectedImage: $viewModel.selectedImage)
         }
-        .fullScreenCover(isPresented: $viewModel.isShowingOrderSelection) {
+        .fullScreenCover(isPresented: $viewModel.isShowingOrderSelection, onDismiss: {
+            viewModel.selectedImage = UIImage()
+        }) {
             OrderSelectionView(isShowingOrderSelection: $viewModel.isShowingOrderSelection, selectedImage: $viewModel.selectedImage)
         }
-        .fullScreenCover(isPresented: $viewModel.isShowingEditor) {
+        .fullScreenCover(isPresented: $viewModel.isShowingEditor, onDismiss: {
+            // if editting done successfully
+            if viewModel.selectedImage != UIImage() {
+                viewModel.isShowingOrderSelection.toggle()
+            }
+        }) {
             ImageEditor(image: $viewModel.selectedImage, isShowingEditor: $viewModel.isShowingEditor, imageData: $viewModel.picData)
         }
         .onAppear(perform: {
