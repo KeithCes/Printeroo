@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import AVFoundation
+import Mantis
 
 struct CameraView: View {
     
@@ -35,6 +36,20 @@ struct CameraView: View {
                     
                     Button(action: viewModel.switchCamera, label: {
                         Image(systemName: "arrow.triangle.2.circlepath.camera")
+                            .foregroundColor(.black)
+                            .padding()
+                            .background(.white)
+                            .clipShape(Circle())
+                    })
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(.trailing, 30)
+                }
+                
+                Spacer()
+                
+                if viewModel.isTaken {
+                    Button(action: {viewModel.isShowingEditor.toggle()}, label: {
+                        Image(systemName: "crop")
                             .foregroundColor(.black)
                             .padding()
                             .background(.white)
@@ -122,6 +137,9 @@ struct CameraView: View {
         }
         .fullScreenCover(isPresented: $viewModel.isShowingOrderSelection) {
             OrderSelectionView(isShowingOrderSelection: $viewModel.isShowingOrderSelection, selectedImage: $viewModel.selectedImage)
+        }
+        .fullScreenCover(isPresented: $viewModel.isShowingEditor) {
+            ImageEditor(image: $viewModel.selectedImage, isShowingEditor: $viewModel.isShowingEditor, imageData: $viewModel.picData)
         }
         .onAppear(perform: {
             viewModel.checkCameraPermissions()

@@ -38,11 +38,13 @@ struct OrderSelectionView: View {
                     CustomTitleText(labelText: "SELECTED PICTURE: ", fontSize: 28)
                         .padding(.top, 10)
                     
+                    // TODO: onTap expand image view to full screen so users can preview
                     Image(uiImage: self.selectedImage)
                         .resizable()
-                        .frame(width: 100, height: 180)
                         .cornerRadius(10)
                         .padding(.bottom, 10)
+                        .scaledToFit()
+                        .frame(width: 100, height: 180)
                 }
             }
 

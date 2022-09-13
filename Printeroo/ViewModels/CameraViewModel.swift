@@ -28,6 +28,7 @@ final class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDe
     @Published var retakeTapped = false
     
     @Published var isShowingOrderSelection: Bool = false
+    @Published var isShowingEditor: Bool = false
     
     
     func checkCameraPermissions() {
@@ -179,6 +180,14 @@ final class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDe
     }
     
     func savePic() {
+        
+        // if editted in mantis crop
+        if self.selectedImage != UIImage() {
+            UIImageWriteToSavedPhotosAlbum(self.selectedImage, nil, nil, nil)
+            self.isSaved = true
+            print("saved successfully...")
+            return
+        }
         let image = UIImage(data: self.picData)!
         
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
@@ -190,6 +199,12 @@ final class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDe
     }
     
     func continueWithPic() {
+        
+        // if editted in mantis crop
+        if self.selectedImage != UIImage() {
+            return
+        }
+        
         let image = UIImage(data: self.picData)!
         
         self.selectedImage = image
