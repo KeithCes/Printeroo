@@ -21,8 +21,34 @@ final class OrderConfirmViewModel: ObservableObject {
     @Published var paymentSheet: PaymentSheet?
     @Published var paymentResult: PaymentSheetResult?
     
+    @Published var itemNames: [String] = []
+    
     @Published var isOrderComplete: Bool = false
     
+    
+    func sendOrderFirebase() {
+        let ref = Database.database().reference()
+        
+        let userID = Auth.auth().currentUser!.uid
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/YYYY"
+        let currentDateString = dateFormatter.string(from: Date())
+        
+        let orderID = UUID().uuidString
+        
+        let orderDetails = [
+            "itemNames": self.itemNames,
+            "imageURL": "",
+            "userID": userID,
+            "totalCost": self.totalCost,
+            "dateOfCreation": currentDateString,
+        ] as [String : Any]
+        
+        ref.child("orders").child(orderID).setValue(orderDetails)
+        
+        print("order sent to firebase")
+    }
     
     func getUserInfo() {
         
@@ -49,7 +75,6 @@ final class OrderConfirmViewModel: ObservableObject {
             catch let error {
                 print(error)
             }
-
         })
     }
     
@@ -107,6 +132,7 @@ final class OrderConfirmViewModel: ObservableObject {
         
         switch self.paymentResult {
         case .completed:
+            self.sendOrderFirebase()
             self.isOrderComplete = true
             print("complete")
         case .failed(let error):

@@ -100,6 +100,7 @@ struct OrderConfirmView: View {
         .onAppear() {
             for item in selectedItems.values {
                 viewModel.totalCost += item["price"] as! Double
+                viewModel.itemNames.append(item["itemName"] as! String)
             }
             viewModel.getUserInfo()
         }
