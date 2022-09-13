@@ -45,6 +45,7 @@
 		841616BC28D0B11D002D959A /* ImageEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616BB28D0B11D002D959A /* ImageEditor.swift */; };
 		841616BE28D0EA2E002D959A /* OrderConfirmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616BD28D0EA2E002D959A /* OrderConfirmViewModel.swift */; };
 		841616C028D0ED0E002D959A /* MainAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616BF28D0ED0E002D959A /* MainAPI.swift */; };
+		841616C528D106FF002D959A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616C428D106FF002D959A /* UserInfo.swift */; };
 		84248B1028C967A3001582D0 /* PrelogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B0F28C967A3001582D0 /* PrelogView.swift */; };
 		84248B1328C967D7001582D0 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B1228C967D7001582D0 /* CustomColors.swift */; };
 		84248B1728C96881001582D0 /* Color+Hexcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B1628C96881001582D0 /* Color+Hexcode.swift */; };
@@ -103,6 +104,7 @@
 		841616BB28D0B11D002D959A /* ImageEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditor.swift; sourceTree = "<group>"; };
 		841616BD28D0EA2E002D959A /* OrderConfirmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmViewModel.swift; sourceTree = "<group>"; };
 		841616BF28D0ED0E002D959A /* MainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAPI.swift; sourceTree = "<group>"; };
+		841616C428D106FF002D959A /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		84248B0F28C967A3001582D0 /* PrelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrelogView.swift; sourceTree = "<group>"; };
 		84248B1228C967D7001582D0 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		84248B1628C96881001582D0 /* Color+Hexcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hexcode.swift"; sourceTree = "<group>"; };
@@ -182,7 +184,7 @@
 		8400A91328C941F8002E7AAA /* Printeroo */ = {
 			isa = PBXGroup;
 			children = (
-				8416168C28CCF1B2002D959A /* GoogleService-Info.plist */,
+				841616C128D106A8002D959A /* API */,
 				84248B3528CBBC1F001582D0 /* WrappedUIKit */,
 				84248B2B28CA7808001582D0 /* Models */,
 				84248B2828CA75E0001582D0 /* ViewModels */,
@@ -193,6 +195,7 @@
 				84248B1428C967DC001582D0 /* Constants */,
 				8400A91428C941F8002E7AAA /* PrinterooApp.swift */,
 				8400A91628C941F8002E7AAA /* ContentView.swift */,
+				8416168C28CCF1B2002D959A /* GoogleService-Info.plist */,
 				8400A91828C941FD002E7AAA /* Assets.xcassets */,
 				8400A91A28C941FD002E7AAA /* Preview Content */,
 			);
@@ -222,6 +225,14 @@
 				8400A93128C941FD002E7AAA /* PrinterooUITestsLaunchTests.swift */,
 			);
 			path = PrinterooUITests;
+			sourceTree = "<group>";
+		};
+		841616C128D106A8002D959A /* API */ = {
+			isa = PBXGroup;
+			children = (
+				841616C428D106FF002D959A /* UserInfo.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		84248B1128C967B9001582D0 /* Views */ = {
@@ -488,6 +499,7 @@
 				841616BE28D0EA2E002D959A /* OrderConfirmViewModel.swift in Sources */,
 				8416169F28CD215F002D959A /* CustomTitleText.swift in Sources */,
 				841616A328CD2265002D959A /* CustomSecureTextbox.swift in Sources */,
+				841616C528D106FF002D959A /* UserInfo.swift in Sources */,
 				84248B1028C967A3001582D0 /* PrelogView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

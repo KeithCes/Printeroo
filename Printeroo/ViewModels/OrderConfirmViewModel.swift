@@ -8,17 +8,48 @@
 import Foundation
 import SwiftUI
 import Stripe
+import FirebaseAuth
+import FirebaseDatabase
 
 final class OrderConfirmViewModel: ObservableObject {
     
     @Published var totalCost: Double = 0
     
-   // @Published var isShowingPaymentSheet: Bool = false
+    @Published var userStripeCustomerID: String = ""
     
     @Published var paymentIntentID: String = ""
     @Published var paymentSheet: PaymentSheet?
     @Published var paymentResult: PaymentSheetResult?
     
+    
+    func getUserInfo() {
+        
+        guard let userID = Auth.auth().currentUser?.uid else {
+            return
+        }
+        
+        let ref = Database.database().reference()
+        
+        ref.child("users").child(userID).child("userInfo").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let snapshotDict = snapshot.value as? [String: Any] else {
+                return
+            }
+            
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: snapshotDict, options: [])
+                let userInfo = try JSONDecoder().decode(UserInfo.self, from: jsonData)
+                
+                self.userStripeCustomerID = userInfo.stripeCustomerID
+                
+                self.preparePaymentSheet(completion: { _ in })
+            }
+            catch let error {
+                print(error)
+            }
+
+        })
+    }
     
     func preparePaymentSheet(completion: @escaping (String?) -> Void) {
         let url = URL(string: MainAPI.url + "/payment-sheet")!
@@ -30,7 +61,7 @@ final class OrderConfirmViewModel: ObservableObject {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! JSONEncoder().encode([
-            "customerID" : "cus_MQ8YZCmIVzj8yA",
+            "customerID" : self.userStripeCustomerID,
             "totalCost" : "\(Int((self.totalCost * 100) + estTax))"
         ])
         

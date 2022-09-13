@@ -39,6 +39,13 @@ struct OrderConfirmView: View {
                             }
                         }
                     }
+                    // TODO: calc tax based on location (change 0.0625 to be dynamic)
+                    HStack {
+                        Text("Estimated Tax")
+                            .bold()
+                        Text("$" + String(format: "%.2f", round(viewModel.totalCost * 0.0625)))
+                            .bold()
+                    }
                     HStack {
                         Text("TOTAL COST")
                             .bold()
@@ -72,7 +79,7 @@ struct OrderConfirmView: View {
                 viewModel.totalCost += item["price"] as! Double
             }
             
-            viewModel.preparePaymentSheet(completion: { _ in })
+            viewModel.getUserInfo()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(CustomColors.sand)
