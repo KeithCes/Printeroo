@@ -7,13 +7,15 @@
 
 import Foundation
 import SwiftUI
+import Stripe
 
 struct OrderConfirmView: View {
+    
+    @StateObject var viewModel: OrderConfirmViewModel = OrderConfirmViewModel()
     
     @Binding var isShowingOrderConfirm: Bool
     @Binding var selectedItems: [Int: [String: Any]]
     
-    @State var totalCost: Double = 0
     
     var body: some View {
         VStack {
@@ -40,27 +42,37 @@ struct OrderConfirmView: View {
                     HStack {
                         Text("TOTAL COST")
                             .bold()
-                        Text("$" + String(format: "%.2f", self.totalCost))
+                        Text("$" + String(format: "%.2f", viewModel.totalCost))
                             .bold()
                     }
                 }
             }
-            Button("CONFIRM") {
-                // TODO: add stripe payment
+            VStack {
+                if let paymentSheet = viewModel.paymentSheet {
+                    PaymentSheet.PaymentButton(
+                        paymentSheet: paymentSheet,
+                        onCompletion: viewModel.onPaymentCompletion
+                    ) {
+                        Text("CONFIRM")
+                            .font(.system(size: 30, weight: .bold, design: .rounded))
+                            .foregroundColor(.white)
+                            .background(Rectangle()
+                                .fill(CustomColors.darkGray.opacity(0.6))
+                                .frame(width: 200, height: 50)
+                                .cornerRadius(15)
+                            )
+                            .padding(.top, 50)
+                    }
+                }
             }
-            .font(.system(size: 30, weight: .bold, design: .rounded))
-            .foregroundColor(.white)
-            .background(Rectangle()
-                .fill(CustomColors.darkGray.opacity(0.6))
-                .frame(width: 200, height: 50)
-                .cornerRadius(15)
-            )
-            .padding(.top, 50)
         }
         .onAppear() {
+            
             for item in selectedItems.values {
-                self.totalCost += item["price"] as! Double
+                viewModel.totalCost += item["price"] as! Double
             }
+            
+            viewModel.preparePaymentSheet(completion: { _ in })
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(CustomColors.sand)

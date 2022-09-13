@@ -130,7 +130,7 @@ final class CreateAccountViewModel: ObservableObject {
     }
     
     func createStripeCustomer(completion: @escaping (String?) -> Void) {
-        let url = URL(string: "https://printeroo-vercel.vercel.app/onboard-customer")!
+        let url = URL(string: MainAPI.url + "/onboard-customer")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
