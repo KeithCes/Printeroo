@@ -21,6 +21,8 @@ final class OrderConfirmViewModel: ObservableObject {
     @Published var paymentSheet: PaymentSheet?
     @Published var paymentResult: PaymentSheetResult?
     
+    @Published var isOrderComplete: Bool = false
+    
     
     func getUserInfo() {
         
@@ -105,6 +107,7 @@ final class OrderConfirmViewModel: ObservableObject {
         
         switch self.paymentResult {
         case .completed:
+            self.isOrderComplete = true
             print("complete")
         case .failed(let error):
             print("failed: \(error.localizedDescription)")

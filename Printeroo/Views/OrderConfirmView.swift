@@ -20,6 +20,18 @@ struct OrderConfirmView: View {
     var body: some View {
         VStack {
             
+            Button(action: {
+                isShowingOrderConfirm = false
+            }) {
+                Image(systemName: "arrow.backward.circle")
+                    .resizable()
+                    .frame(width: 32, height: 32)
+                    .foregroundColor(CustomColors.darkGray)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, 30)
+            .padding(.top, 50)
+            
             CustomTitleText(labelText: "PLEASE CONFIRM THE FOLLOWING: ")
             CustomTitleText(labelText: "SELECTED ITEMS", fontSize: 24)
                 .padding(.top, 20)
@@ -54,6 +66,9 @@ struct OrderConfirmView: View {
                     }
                 }
             }
+            
+            Spacer()
+            
             VStack {
                 if let paymentSheet = viewModel.paymentSheet {
                     PaymentSheet.PaymentButton(
@@ -68,17 +83,24 @@ struct OrderConfirmView: View {
                                 .frame(width: 200, height: 50)
                                 .cornerRadius(15)
                             )
-                            .padding(.top, 50)
+                            .padding(.bottom, 50)
                     }
+                }
+                else {
+                    Text("LOADING...")
+                        .font(.system(size: 30, weight: .bold, design: .rounded))
+                        .foregroundColor(.white)
+                        .padding(.bottom, 50)
                 }
             }
         }
+        .fullScreenCover(isPresented: $viewModel.isOrderComplete) {
+            CameraView()
+        }
         .onAppear() {
-            
             for item in selectedItems.values {
                 viewModel.totalCost += item["price"] as! Double
             }
-            
             viewModel.getUserInfo()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
