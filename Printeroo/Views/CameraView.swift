@@ -33,6 +33,19 @@ struct CameraView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 30)
                     }
+                    else {
+                        Button(action: {
+                            viewModel.isShowingSettings.toggle()
+                        }, label: {
+                            Image(systemName: "gear")
+                                .foregroundColor(.black)
+                                .padding()
+                                .background(.white)
+                                .clipShape(Circle())
+                        })
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 30)
+                    }
                     
                     Button(action: viewModel.switchCamera, label: {
                         Image(systemName: "arrow.triangle.2.circlepath.camera")
@@ -147,6 +160,9 @@ struct CameraView: View {
             }
         }) {
             ImageEditor(image: $viewModel.selectedImage, isShowingEditor: $viewModel.isShowingEditor, imageData: $viewModel.picData)
+        }
+        .fullScreenCover(isPresented: $viewModel.isShowingSettings) {
+            YourProfileView(isShowingSettings: $viewModel.isShowingSettings)
         }
         .onAppear(perform: {
             viewModel.checkCameraPermissions()

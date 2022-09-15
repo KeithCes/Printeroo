@@ -46,6 +46,13 @@
 		841616BE28D0EA2E002D959A /* OrderConfirmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616BD28D0EA2E002D959A /* OrderConfirmViewModel.swift */; };
 		841616C028D0ED0E002D959A /* MainAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616BF28D0ED0E002D959A /* MainAPI.swift */; };
 		841616C528D106FF002D959A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616C428D106FF002D959A /* UserInfo.swift */; };
+		841616C728D3A7DE002D959A /* YourProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616C628D3A7DE002D959A /* YourProfileView.swift */; };
+		841616C928D3A80D002D959A /* YourProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616C828D3A80D002D959A /* YourProfileViewModel.swift */; };
+		841616CD28D3AA0D002D959A /* CustomTextboxTitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616CC28D3AA0C002D959A /* CustomTextboxTitleText.swift */; };
+		841616CF28D3AAD0002D959A /* ChangeAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616CE28D3AAD0002D959A /* ChangeAddressViewModel.swift */; };
+		841616D128D3AB0E002D959A /* ChangeAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616D028D3AB0E002D959A /* ChangeAddressView.swift */; };
+		841616D328D3AB3A002D959A /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616D228D3AB3A002D959A /* ChangePasswordView.swift */; };
+		841616D528D3AB67002D959A /* CustomSecureTextboxTitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616D428D3AB67002D959A /* CustomSecureTextboxTitleText.swift */; };
 		84248B1028C967A3001582D0 /* PrelogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B0F28C967A3001582D0 /* PrelogView.swift */; };
 		84248B1328C967D7001582D0 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B1228C967D7001582D0 /* CustomColors.swift */; };
 		84248B1728C96881001582D0 /* Color+Hexcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B1628C96881001582D0 /* Color+Hexcode.swift */; };
@@ -105,6 +112,13 @@
 		841616BD28D0EA2E002D959A /* OrderConfirmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmViewModel.swift; sourceTree = "<group>"; };
 		841616BF28D0ED0E002D959A /* MainAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAPI.swift; sourceTree = "<group>"; };
 		841616C428D106FF002D959A /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		841616C628D3A7DE002D959A /* YourProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourProfileView.swift; sourceTree = "<group>"; };
+		841616C828D3A80D002D959A /* YourProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourProfileViewModel.swift; sourceTree = "<group>"; };
+		841616CC28D3AA0C002D959A /* CustomTextboxTitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextboxTitleText.swift; sourceTree = "<group>"; };
+		841616CE28D3AAD0002D959A /* ChangeAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAddressViewModel.swift; sourceTree = "<group>"; };
+		841616D028D3AB0E002D959A /* ChangeAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeAddressView.swift; sourceTree = "<group>"; };
+		841616D228D3AB3A002D959A /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
+		841616D428D3AB67002D959A /* CustomSecureTextboxTitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureTextboxTitleText.swift; sourceTree = "<group>"; };
 		84248B0F28C967A3001582D0 /* PrelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrelogView.swift; sourceTree = "<group>"; };
 		84248B1228C967D7001582D0 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		84248B1628C96881001582D0 /* Color+Hexcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hexcode.swift"; sourceTree = "<group>"; };
@@ -244,6 +258,9 @@
 				8416169028CD1F22002D959A /* LoginView.swift */,
 				8416169828CD2050002D959A /* CreateAccountView.swift */,
 				84248B0F28C967A3001582D0 /* PrelogView.swift */,
+				841616C628D3A7DE002D959A /* YourProfileView.swift */,
+				841616D028D3AB0E002D959A /* ChangeAddressView.swift */,
+				841616D228D3AB3A002D959A /* ChangePasswordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,6 +301,8 @@
 				8416169A28CD2098002D959A /* CustomTextbox.swift */,
 				8416169E28CD215F002D959A /* CustomTitleText.swift */,
 				841616A228CD2265002D959A /* CustomSecureTextbox.swift */,
+				841616CC28D3AA0C002D959A /* CustomTextboxTitleText.swift */,
+				841616D428D3AB67002D959A /* CustomSecureTextboxTitleText.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -297,6 +316,8 @@
 				8416169228CD1F78002D959A /* LoginViewModel.swift */,
 				8416169628CD2002002D959A /* CreateAccountViewModel.swift */,
 				8416168E28CD1E5B002D959A /* PrelogViewModel.swift */,
+				841616C828D3A80D002D959A /* YourProfileViewModel.swift */,
+				841616CE28D3AAD0002D959A /* ChangeAddressViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -472,12 +493,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				84248B3928CBE303001582D0 /* OrderConfirmView.swift in Sources */,
+				841616D328D3AB3A002D959A /* ChangePasswordView.swift in Sources */,
+				841616C928D3A80D002D959A /* YourProfileViewModel.swift in Sources */,
 				84248B2A28CA75ED001582D0 /* CameraViewModel.swift in Sources */,
 				84248B3D28CBE83D001582D0 /* OrderSelectionViewModel.swift in Sources */,
 				841616BC28D0B11D002D959A /* ImageEditor.swift in Sources */,
 				8400A91728C941F8002E7AAA /* ContentView.swift in Sources */,
 				8400A91528C941F8002E7AAA /* PrinterooApp.swift in Sources */,
 				84248B1728C96881001582D0 /* Color+Hexcode.swift in Sources */,
+				841616CF28D3AAD0002D959A /* ChangeAddressViewModel.swift in Sources */,
+				841616D528D3AB67002D959A /* CustomSecureTextboxTitleText.swift in Sources */,
 				8416168F28CD1E5C002D959A /* PrelogViewModel.swift in Sources */,
 				8416169528CD1FB9002D959A /* Toast.swift in Sources */,
 				841616A528CD22CE002D959A /* StateCodes.swift in Sources */,
@@ -488,13 +513,16 @@
 				84248B3128CAB3F1001582D0 /* CameraView.swift in Sources */,
 				84248B2F28CA7AB2001582D0 /* ImagePicker.swift in Sources */,
 				8416169928CD2050002D959A /* CreateAccountView.swift in Sources */,
+				841616CD28D3AA0D002D959A /* CustomTextboxTitleText.swift in Sources */,
 				8416169728CD2002002D959A /* CreateAccountViewModel.swift in Sources */,
 				8416169D28CD2122002D959A /* View+Placeholder.swift in Sources */,
 				84248B3728CBBC3A001582D0 /* CameraPreview.swift in Sources */,
 				8416169B28CD2098002D959A /* CustomTextbox.swift in Sources */,
+				841616C728D3A7DE002D959A /* YourProfileView.swift in Sources */,
 				84248B2328CA4E4E001582D0 /* CheckoutItem.swift in Sources */,
 				8416169128CD1F22002D959A /* LoginView.swift in Sources */,
 				841616C028D0ED0E002D959A /* MainAPI.swift in Sources */,
+				841616D128D3AB0E002D959A /* ChangeAddressView.swift in Sources */,
 				841616A128CD2216002D959A /* CustomDimensions.swift in Sources */,
 				841616BE28D0EA2E002D959A /* OrderConfirmViewModel.swift in Sources */,
 				8416169F28CD215F002D959A /* CustomTitleText.swift in Sources */,

@@ -29,6 +29,7 @@ final class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDe
     
     @Published var isShowingOrderSelection: Bool = false
     @Published var isShowingEditor: Bool = false
+    @Published var isShowingSettings: Bool = false
     
     
     func checkCameraPermissions() {
