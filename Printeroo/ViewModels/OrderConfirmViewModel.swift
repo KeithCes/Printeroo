@@ -15,6 +15,7 @@ import FirebaseStorage
 final class OrderConfirmViewModel: ObservableObject {
     
     @Published var totalCost: Double = 0
+    @Published var estimatedTax: Double = 0
     
     @Published var userStripeCustomerID: String = ""
     
@@ -61,11 +62,13 @@ final class OrderConfirmViewModel: ObservableObject {
         }
         
         let orderDetails = [
+            "orderID": orderID,
             "itemNames": self.itemNames,
             "imagePath": orderImagePath,
             "userID": userID,
             "totalCost": self.totalCost,
             "dateOfCreation": currentDateString,
+            "status": "placed",
         ] as [String : Any]
         
         ref.child("orders").child(orderID).setValue(orderDetails)
@@ -104,8 +107,7 @@ final class OrderConfirmViewModel: ObservableObject {
     func preparePaymentSheet(completion: @escaping (String?) -> Void) {
         let url = URL(string: MainAPI.url + "/payment-sheet")!
         
-        // TODO: calc tax based on location (change 0.0625 to be dynamic)
-        let estTax = round(self.totalCost * 0.0625 * 100)
+        let estTax = round(self.estimatedTax * 100)
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

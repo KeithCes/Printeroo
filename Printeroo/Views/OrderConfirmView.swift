@@ -53,17 +53,16 @@ struct OrderConfirmView: View {
                             }
                         }
                     }
-                    // TODO: calc tax based on location (change 0.0625 to be dynamic)
                     HStack {
                         Text("Estimated Tax")
                             .bold()
-                        Text("$" + String(format: "%.2f", round(viewModel.totalCost * 0.0625)))
+                        Text("$" + String(format: "%.2f", viewModel.estimatedTax))
                             .bold()
                     }
                     HStack {
                         Text("TOTAL COST")
                             .bold()
-                        Text("$" + String(format: "%.2f", viewModel.totalCost))
+                        Text("$" + String(format: "%.2f", viewModel.totalCost + viewModel.estimatedTax))
                             .bold()
                     }
                 }
@@ -104,6 +103,10 @@ struct OrderConfirmView: View {
                 viewModel.totalCost += item["price"] as! Double
                 viewModel.itemNames.append(item["itemName"] as! String)
             }
+            
+            // TODO: calc tax based on location (change 0.0625 to be dynamic)
+            viewModel.estimatedTax = viewModel.totalCost * 0.0625
+            
             viewModel.getUserInfo()
             viewModel.selectedImage = self.selectedImage
         }

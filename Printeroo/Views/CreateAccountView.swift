@@ -131,7 +131,19 @@ struct CreateAccountView: View {
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 30, trailing: 20))
                     .submitLabel(.done)
                     .onSubmit {
-                        viewModel.createAccount()
+                        viewModel.checkPostErrorToast()
+                        
+                        if viewModel.checkIfCreateInfoValid() {
+                            viewModel.createStripeCustomer { customerID in
+                                guard let stripeCustomerID = customerID else {
+                                    return
+                                }
+                                DispatchQueue.main.async {
+                                    viewModel.stripeCustomerID = stripeCustomerID
+                                    viewModel.createAccount()
+                                }
+                            }
+                        }
                     }
                 
                 Button("CREATE") {

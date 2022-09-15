@@ -101,6 +101,11 @@ final class CreateAccountViewModel: ObservableObject {
                     let dobString = dateFormatter.string(from: self.dob)
                     let currentDateString = dateFormatter.string(from: Date())
                     
+                    if self.stripeCustomerID == "" {
+                        print("no stripeCustomerID")
+                        return
+                    }
+                    
                     let userDetails = [
                         "firstName": self.firstName,
                         "lastName": self.lastName,
