@@ -26,6 +26,7 @@ final class YourProfileViewModel: ObservableObject {
     
     @Published var isShowingChangePassword: Bool = false
     @Published var isShowingChangeAddress: Bool = false
+    @Published var isShowingOrders: Bool = false
     @Published var isShowingImagePicker = false
     
     @Published var isProgressViewHidden: Bool = false

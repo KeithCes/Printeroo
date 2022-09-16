@@ -74,6 +74,24 @@ struct YourProfileView: View {
                     
                     // password
                     Button(action: {
+                        viewModel.isShowingOrders.toggle()
+                    }) {
+                        Image(systemName: "bag")
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                            .foregroundColor(CustomColors.darkGray)
+                            .background(Rectangle()
+                                .fill(Color.white.opacity(0.5))
+                                .frame(width: 64, height: 64)
+                                .cornerRadius(15))
+                    }.sheet(isPresented: $viewModel.isShowingOrders, content: {
+                        PlacedOrdersView()
+                    })
+                    
+                    Spacer()
+                    
+                    // password
+                    Button(action: {
                         viewModel.isShowingChangePassword.toggle()
                     }) {
                         Image(systemName: "key.fill")
