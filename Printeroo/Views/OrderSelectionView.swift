@@ -52,15 +52,15 @@ struct OrderSelectionView: View {
             ScrollView {
                 HStack {
                     CheckoutItem(itemID: 0, image: UIImage(named: "SinglePolaroid") ?? UIImage(), price: 5, itemName: "Polaroid", selectedItems: $viewModel.selectedItems)
-                    CheckoutItem(itemID: 1, image: UIImage(named: "MultiPolaroid") ?? UIImage(), price: 3.99, itemName: "Polaroid (5)", selectedItems: $viewModel.selectedItems)
+                    CheckoutItem(itemID: 1, image: UIImage(named: "Mug") ?? UIImage(), price: 3.99, itemName: "Printed Mug", selectedItems: $viewModel.selectedItems)
                 }
                 HStack {
-                    CheckoutItem(itemID: 2, image: UIImage(named: "GlossPhoto") ?? UIImage(), price: 69, itemName: "Gloss Photo", selectedItems: $viewModel.selectedItems)
-                    CheckoutItem(itemID: 3, image: UIImage(named: "GlossPhotoFrame") ?? UIImage(), price: 69.69, itemName: "Framed Gloss Photo", selectedItems: $viewModel.selectedItems)
+                    CheckoutItem(itemID: 2, image: UIImage(named: "Frisbee") ?? UIImage(), price: 15, itemName: "Frisbee", selectedItems: $viewModel.selectedItems)
+                    CheckoutItem(itemID: 3, image: UIImage(named: "Koozie") ?? UIImage(), price: 0, itemName: "Koozie", selectedItems: $viewModel.selectedItems)
                 }
                 HStack {
-                    CheckoutItem(itemID: 4, image: UIImage(named: "Mug") ?? UIImage(), price: 15, itemName: "Printed Mug", selectedItems: $viewModel.selectedItems)
-                    CheckoutItem(itemID: 5, image: UIImage(named: "Test") ?? UIImage(), price: 0, itemName: "Test", selectedItems: $viewModel.selectedItems)
+                    CheckoutItem(itemID: 4, image: UIImage(named: "GlossPhoto") ?? UIImage(), price: 69, itemName: "Gloss Photo", selectedItems: $viewModel.selectedItems)
+                    CheckoutItem(itemID: 5, image: UIImage(named: "GlossPhotoFrame") ?? UIImage(), price: 69.69, itemName: "Framed Gloss Photo", selectedItems: $viewModel.selectedItems)
                 }
             }
             .background() {
