@@ -15,11 +15,13 @@ struct CheckoutItem: View {
     private var price: Double
     private var itemName: String
     
+    @State var amount: Int = 0
+    
     private var imageWidth: CGFloat
     private var imageHeight: CGFloat
     private var viewWidth: CGFloat
     private var viewHeight: CGFloat
-
+    
     @State var isSelected: Bool = false
     
     @Binding var selectedItems: [Int: [String: Any]]
@@ -50,11 +52,39 @@ struct CheckoutItem: View {
                 .cornerRadius(10)
                 .padding(.bottom, 20)
                 .blur(radius: !self.isSelected ? 0 : 2)
-            Image(systemName: "checkmark.circle")
-                .resizable()
-                .frame(width: 48, height: 48)
-                .foregroundColor(.green)
-                .isHidden(!self.isSelected)
+            VStack {
+                Text(String(self.amount))
+                    .foregroundColor(.white)
+                    .background(Rectangle()
+                        .fill(CustomColors.darkGray.opacity(0.5))
+                        .frame(width: 25, height: 25)
+                        .cornerRadius(5)
+                        .padding()
+                    )
+                    .isHidden(self.amount == 0)
+                HStack {
+                    Image(systemName: "plus")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(CustomColors.sand)
+                        .clipShape(Circle())
+                        .onTapGesture {
+                            self.amount += 1
+                            self.selectedItems[self.itemID]?["amount"] = self.amount
+                        }
+                        .isHidden(self.amount == 0)
+                    Image(systemName: "minus")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(CustomColors.sand)
+                        .clipShape(Circle())
+                        .onTapGesture {
+                            self.amount -= 1
+                            self.selectedItems[self.itemID]?["amount"] = self.amount
+                        }
+                        .isHidden(self.amount == 0)
+                }
+            }
             VStack {
                 HStack {
                     Spacer()
@@ -81,16 +111,26 @@ struct CheckoutItem: View {
                 }
                 .frame(width: self.viewWidth, height: 34)
             }
-
+            
         }
+        .onChange(of: self.amount, perform: { _ in
+            if self.isSelected && self.amount == 0 {
+                self.isSelected = false
+            }
+        })
         .onTapGesture {
-            if self.isSelected {
+            if self.isSelected && self.amount == 0 {
                 self.selectedItems.removeValue(forKey: self.itemID)
                 self.isSelected = false
             }
             else {
-                self.selectedItems[self.itemID] = ["itemName": self.itemName, "price": self.price]
+                self.selectedItems[self.itemID] = ["itemName": self.itemName, "price": self.price, "amount": self.amount]
                 self.isSelected = true
+                
+                if self.amount == 0 {
+                    self.amount += 1
+                    self.selectedItems[self.itemID]?["amount"] = self.amount
+                }
             }
         }
     }

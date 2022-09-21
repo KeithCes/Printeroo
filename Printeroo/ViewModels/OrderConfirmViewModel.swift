@@ -23,7 +23,7 @@ final class OrderConfirmViewModel: ObservableObject {
     @Published var paymentSheet: PaymentSheet?
     @Published var paymentResult: PaymentSheetResult?
     
-    @Published var itemNames: [String] = []
+    @Published var itemNamesAmounts: [String: Int] = [:]
     
     @Published var isOrderComplete: Bool = false
     
@@ -63,10 +63,10 @@ final class OrderConfirmViewModel: ObservableObject {
         
         let orderDetails = [
             "orderID": orderID,
-            "itemNames": self.itemNames,
+            "itemNamesAmounts": self.itemNamesAmounts,
             "imagePath": orderImagePath,
             "userID": userID,
-            "totalCost": self.totalCost,
+            "totalCost": self.totalCost + self.estimatedTax,
             "dateOfCreation": currentDateString,
             "status": "placed",
         ] as [String : Any]

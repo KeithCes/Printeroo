@@ -24,27 +24,24 @@ struct PlacedOrdersView: View {
             
             List(viewModel.allOrders, id: \.self) { order in
                 VStack {
-                    
                     PlacedOrder(order: order)
-                    
-                    
                 }
-                .background(Rectangle()
+                .listRowSeparator(.hidden)
+                .listRowBackground(Rectangle()
                     .fill(Color.white.opacity(0.5))
                     .overlay(RoundedRectangle(cornerRadius: 15)
                         .stroke(CustomColors.darkGray, lineWidth: 1)
                     )
                     .cornerRadius(15)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
                 )
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color.clear)
             }
             .background(Rectangle()
                 .fill(Color.white.opacity(0.5))
                 .cornerRadius(15)
             )
             .padding(.all, 20)
+            .frame(maxWidth: .infinity)
+            .listStyle(PlainListStyle())
         }
         .padding(.vertical, 20)
         .frame(maxWidth: .infinity, maxHeight: .infinity)

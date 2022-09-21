@@ -8,3 +8,4 @@ Bugs:
 Things to think about before release:
 -stock photos: where we get them, what they are
 -should we show totalCost as tax + cost of items or just items (show correct data in db, stripe, order placed page, order confirm page)
+-ban horizontal and upsidedown views

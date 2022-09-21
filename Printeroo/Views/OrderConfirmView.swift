@@ -41,33 +41,57 @@ struct OrderConfirmView: View {
             // this is terrible please change this to by dynamic and not just 100x
             // CHECK PlacedOrdersView
             ZStack {
-                Rectangle()
-                    .foregroundColor(.white.opacity(0.1))
-                    .frame(width: CustomDimensions.width, height: 100 + CGFloat((selectedItems.count * 12)))
-                    .cornerRadius(10)
                 VStack {
                     ForEach(0..<100) { itemNumber in
                         if let selectedItem = selectedItems[itemNumber] {
                             HStack {
                                 Text(selectedItem["itemName"] as! String)
-                                Text("$" + String(format: "%.2f", selectedItem["price"] as! Double))
+                                
+                                Spacer()
+                                
+                                HStack {
+                                    // have to break it up like this otherwise swift "can't type check in time"... bruh
+                                    let price = selectedItem["price"] as! Double
+                                    let amount = selectedItem["amount"] as! Int
+                                    let totalCost = price * Double(amount)
+                                    let finalString = "$" + String(format: "%.2f", price) + " x " + String(amount) + " ="
+                                    
+                                    Text(finalString)
+                                    
+                                    Spacer()
+                                    
+                                    Text("$" + String(format: "%.2f", totalCost))
+                                }
+                                .frame(width: 160)
+                                .padding(.leading, 20)
                             }
                         }
                     }
                     HStack {
                         Text("Estimated Tax")
-                            .bold()
+                        Spacer()
                         Text("$" + String(format: "%.2f", viewModel.estimatedTax))
-                            .bold()
                     }
+                    .padding(.top, 10)
+                    
+                    Spacer()
+                        .frame(height: 50)
+                    
                     HStack {
                         Text("TOTAL COST")
                             .bold()
+                        Spacer()
                         Text("$" + String(format: "%.2f", viewModel.totalCost + viewModel.estimatedTax))
                             .bold()
                     }
                 }
+                .padding(.all, 10)
             }
+            .background(Rectangle()
+                .foregroundColor(.white.opacity(0.1))
+                .cornerRadius(10)
+            )
+            .padding(.all, 20)
             
             Spacer()
             
@@ -101,12 +125,12 @@ struct OrderConfirmView: View {
         }
         .onAppear() {
             for item in selectedItems.values {
-                viewModel.totalCost += item["price"] as! Double
-                viewModel.itemNames.append(item["itemName"] as! String)
+                viewModel.totalCost += item["price"] as! Double * Double(item["amount"] as! Int)
+                viewModel.itemNamesAmounts[item["itemName"] as! String] = item["amount"] as? Int
             }
             
             // TODO: calc tax based on location (change 0.0625 to be dynamic)
-            viewModel.estimatedTax = viewModel.totalCost * 0.0625
+            viewModel.estimatedTax = round(viewModel.totalCost * 0.0625 * 100) / 100
             
             viewModel.getUserInfo()
             viewModel.selectedImage = self.selectedImage

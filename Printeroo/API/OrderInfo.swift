@@ -10,7 +10,7 @@ import Foundation
 struct OrderInfo: Codable, Hashable {
     var dateOfCreation: String
     var imagePath: String
-    var itemNames: [String]
+    var itemNamesAmounts: [String: Int]
     var orderID: String
     var status: String
     var totalCost: Double

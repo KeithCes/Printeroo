@@ -37,10 +37,10 @@ struct PlacedOrder: View {
             Spacer()
             Text("Date Placed: " + self.order.dateOfCreation)
             Spacer()
-            Text("Items Ordered: \n" + self.order.itemNames.joined(separator: ", "))
+            Text("Items Ordered:")
+            Text(self.order.itemNamesAmounts.map { String($0.1) + "x " + $0.0 }.joined(separator: "\n"))
                 .fixedSize(horizontal: false, vertical: true)
         }
-        .padding(.bottom, 20)
         .padding(.horizontal, 20)
         .overlay(
             ProgressView()
