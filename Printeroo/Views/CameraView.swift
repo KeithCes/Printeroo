@@ -25,9 +25,9 @@ struct CameraView: View {
                             viewModel.reTake()
                         }, label: {
                             Image(systemName: "x.circle")
-                                .foregroundColor(.black)
+                                .foregroundColor(.white)
                                 .padding()
-                                .background(.white)
+                                .background(CustomColors.sand)
                                 .clipShape(Circle())
                         })
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -38,9 +38,9 @@ struct CameraView: View {
                             viewModel.isShowingSettings.toggle()
                         }, label: {
                             Image(systemName: "gear")
-                                .foregroundColor(.black)
+                                .foregroundColor(.white)
                                 .padding()
-                                .background(.white)
+                                .background(CustomColors.sand)
                                 .clipShape(Circle())
                         })
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -49,9 +49,9 @@ struct CameraView: View {
                     
                     Button(action: viewModel.switchCamera, label: {
                         Image(systemName: "arrow.triangle.2.circlepath.camera")
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             .padding()
-                            .background(.white)
+                            .background(CustomColors.sand)
                             .clipShape(Circle())
                     })
                     .frame(maxWidth: .infinity, alignment: .trailing)
@@ -63,9 +63,9 @@ struct CameraView: View {
                 if viewModel.isTaken {
                     Button(action: {viewModel.isShowingEditor.toggle()}, label: {
                         Image(systemName: "crop")
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             .padding()
-                            .background(.white)
+                            .background(CustomColors.sand)
                             .clipShape(Circle())
                     })
                     .frame(maxWidth: .infinity, alignment: .trailing)
@@ -82,9 +82,9 @@ struct CameraView: View {
                             }
                         }, label: {
                             Image(systemName: "square.and.arrow.down")
-                                .foregroundColor(.black)
+                                .foregroundColor(.white)
                                 .padding()
-                                .background(.white)
+                                .background(CustomColors.sand)
                                 .clipShape(Circle())
                         })
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -95,11 +95,11 @@ struct CameraView: View {
                             viewModel.isShowingOrderSelection.toggle()
                         }, label: {
                             Text("Continue →")
-                                .foregroundColor(.black)
+                                .foregroundColor(.white)
                                 .fontWeight(.semibold)
                                 .padding(.vertical, 10)
                                 .padding(.horizontal, 20)
-                                .background(.white)
+                                .background(CustomColors.sand)
                                 .clipShape(Capsule())
                         })
                         .frame(maxWidth: .infinity, alignment: .trailing)
@@ -110,10 +110,10 @@ struct CameraView: View {
                             Button(action: viewModel.takePic, label: {
                                 ZStack {
                                     Circle()
-                                        .fill(.white)
+                                        .fill(CustomColors.sand)
                                         .frame(width: 40, height: 40)
                                     Circle()
-                                        .stroke(.white, lineWidth: 2)
+                                        .stroke(CustomColors.sand, lineWidth: 2)
                                         .frame(width: 50, height: 50)
                                 }
                             })
@@ -125,11 +125,11 @@ struct CameraView: View {
                             }, label: {
                                 ZStack {
                                     Rectangle()
-                                        .fill(.white)
+                                        .fill(CustomColors.sand)
                                         .frame(width: 12, height: 30)
                                         .cornerRadius(1)
                                     Rectangle()
-                                        .stroke(.white, lineWidth: 2)
+                                        .stroke(CustomColors.sand, lineWidth: 2)
                                         .frame(width: 20, height: 40)
                                         .cornerRadius(1)
                                 }

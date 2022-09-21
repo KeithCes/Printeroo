@@ -62,6 +62,12 @@ struct OrderSelectionView: View {
                     CheckoutItem(itemID: 4, image: UIImage(named: "GlossPhoto") ?? UIImage(), price: 69, itemName: "Gloss Photo", selectedItems: $viewModel.selectedItems)
                     CheckoutItem(itemID: 5, image: UIImage(named: "GlossPhotoFrame") ?? UIImage(), price: 69.69, itemName: "Framed Gloss Photo", selectedItems: $viewModel.selectedItems)
                 }
+                HStack {
+                    CheckoutItem(itemID: 6, image: UIImage(named: "Test") ?? UIImage(), price: 30, itemName: "Temporary Tattoo", selectedItems: $viewModel.selectedItems)
+                    // BLANK
+                    CheckoutItem(itemID: 7, image: UIImage(named: "") ?? UIImage(), price: 0, itemName: "", selectedItems: $viewModel.selectedItems)
+                        .isHidden(true)
+                }
             }
             .background() {
                 Rectangle()
