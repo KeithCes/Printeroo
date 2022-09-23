@@ -18,6 +18,8 @@ struct OrderConfirmView: View {
     
     @Binding var selectedImage: UIImage
     
+    @Binding var isFromCameraRoll: Bool
+    
     
     var body: some View {
         VStack {
@@ -66,6 +68,21 @@ struct OrderConfirmView: View {
                                 .padding(.leading, 20)
                             }
                         }
+                    }
+                    
+                    if !self.isFromCameraRoll {
+                        HStack {
+                            Text("Picture Taken in App (10% OFF")
+                            Spacer()
+                            Text("-$" + String(format: "%.2f", viewModel.pictureTakenInAppDiscount))
+                        }
+                        .padding(.top, 10)
+                    }
+                    
+                    HStack {
+                        Text("Subtotal")
+                        Spacer()
+                        Text("$" + String(format: "%.2f", viewModel.totalCost))
                     }
                     HStack {
                         Text("Estimated Tax")
@@ -129,11 +146,17 @@ struct OrderConfirmView: View {
                 viewModel.itemNamesAmounts[item["itemName"] as! String] = item["amount"] as? Int
             }
             
+            viewModel.pictureTakenInAppDiscount = viewModel.totalCost * 0.1
+            
+            viewModel.totalCost -= viewModel.pictureTakenInAppDiscount
+            
             // TODO: calc tax based on location (change 0.0625 to be dynamic)
             viewModel.estimatedTax = round(viewModel.totalCost * 0.0625 * 100) / 100
             
             viewModel.getUserInfo()
             viewModel.selectedImage = self.selectedImage
+            
+            viewModel.isFromCameraRoll = self.isFromCameraRoll
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(CustomColors.sand)

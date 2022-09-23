@@ -36,7 +36,7 @@ struct PlacedOrdersView: View {
                 )
             }
             .background(Rectangle()
-                .fill(Color.white.opacity(0.5))
+                .fill(Color.white.opacity(0.1))
                 .cornerRadius(15)
             )
             .padding(.all, 20)

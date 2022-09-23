@@ -143,6 +143,7 @@ struct CameraView: View {
         }
         .fullScreenCover(isPresented: $viewModel.showPicker, onDismiss: {
             if viewModel.selectedImage != UIImage() {
+                viewModel.isFromCameraRoll = true
                 viewModel.isShowingOrderSelection.toggle()
             }
         }) {
@@ -151,7 +152,7 @@ struct CameraView: View {
         .fullScreenCover(isPresented: $viewModel.isShowingOrderSelection, onDismiss: {
             viewModel.selectedImage = UIImage()
         }) {
-            OrderSelectionView(isShowingOrderSelection: $viewModel.isShowingOrderSelection, selectedImage: $viewModel.selectedImage)
+            OrderSelectionView(isShowingOrderSelection: $viewModel.isShowingOrderSelection, selectedImage: $viewModel.selectedImage, isFromCameraRoll: $viewModel.isFromCameraRoll)
         }
         .fullScreenCover(isPresented: $viewModel.isShowingEditor, onDismiss: {
             // if editting done successfully

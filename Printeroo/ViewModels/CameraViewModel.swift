@@ -31,6 +31,8 @@ final class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDe
     @Published var isShowingEditor: Bool = false
     @Published var isShowingSettings: Bool = false
     
+    @Published var isFromCameraRoll = false
+    
     
     func checkCameraPermissions() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {

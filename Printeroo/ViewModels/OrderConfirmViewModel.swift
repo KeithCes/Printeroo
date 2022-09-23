@@ -16,6 +16,7 @@ final class OrderConfirmViewModel: ObservableObject {
     
     @Published var totalCost: Double = 0
     @Published var estimatedTax: Double = 0
+    @Published var pictureTakenInAppDiscount: Double = 0
     
     @Published var userStripeCustomerID: String = ""
     
@@ -28,6 +29,8 @@ final class OrderConfirmViewModel: ObservableObject {
     @Published var isOrderComplete: Bool = false
     
     @Published var selectedImage: UIImage = UIImage()
+    
+    @Published var isFromCameraRoll: Bool?
     
     
     func sendOrderFirebase() {
@@ -61,6 +64,10 @@ final class OrderConfirmViewModel: ObservableObject {
             }
         }
         
+        guard let isFromCameraRoll = self.isFromCameraRoll else {
+            return
+        }
+        
         let orderDetails = [
             "orderID": orderID,
             "itemNamesAmounts": self.itemNamesAmounts,
@@ -69,6 +76,7 @@ final class OrderConfirmViewModel: ObservableObject {
             "totalCost": self.totalCost + self.estimatedTax,
             "dateOfCreation": currentDateString,
             "status": "placed",
+            "isCameraDiscountApplied": !isFromCameraRoll,
         ] as [String : Any]
         
         ref.child("orders").child(orderID).setValue(orderDetails)

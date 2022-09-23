@@ -13,6 +13,8 @@ struct OrderSelectionView: View {
     @Binding var isShowingOrderSelection: Bool
     @Binding var selectedImage: UIImage
     
+    @Binding var isFromCameraRoll: Bool
+    
     @StateObject var viewModel: OrderSelectionViewModel = OrderSelectionViewModel()
     
     var body: some View {
@@ -91,7 +93,8 @@ struct OrderSelectionView: View {
             .padding(.bottom, 50)
         }
         .fullScreenCover(isPresented: $viewModel.isShowingOrderConfirm) {
-            OrderConfirmView(isShowingOrderConfirm: $viewModel.isShowingOrderConfirm, selectedItems: $viewModel.selectedItems, selectedImage: $selectedImage)
+            OrderConfirmView(isShowingOrderConfirm: $viewModel.isShowingOrderConfirm, selectedItems: $viewModel.selectedItems, selectedImage: $selectedImage,
+                             isFromCameraRoll: self.$isFromCameraRoll)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(CustomColors.sand)
