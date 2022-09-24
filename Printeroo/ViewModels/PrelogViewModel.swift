@@ -15,8 +15,11 @@ final class PrelogViewModel: ObservableObject {
     @Published var isShowingLogin: Bool = false
     @Published var isShowingCreate: Bool = false
     @Published var isCreateSuccessful: Bool = false
+    @Published var isShowingTutorial: Bool = false
     
     @Published var isLoggedIn: Bool = false
+    
+    @AppStorage("hasUserSeenTutorial") private var hasUserSeenTutorial: Bool = false
     
     func checkUserLoggedIn() {
         
@@ -27,6 +30,11 @@ final class PrelogViewModel: ObservableObject {
             return
         }
         
-        self.isLoggedIn.toggle()
+        if !UserDefaults.standard.bool(forKey: "hasUserSeenTutorial") {
+            self.isShowingTutorial.toggle()
+        }
+        else {
+            self.isLoggedIn.toggle()
+        }
     }
 }

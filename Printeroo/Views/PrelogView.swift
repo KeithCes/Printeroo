@@ -58,6 +58,11 @@ struct PrelogView: View {
         .fullScreenCover(isPresented: $viewModel.isLoggedIn) {
             CameraView()
         }
+        .fullScreenCover(isPresented: $viewModel.isShowingTutorial, onDismiss: {
+            viewModel.checkUserLoggedIn()
+        }) {
+            TutorialView(isShowingTutorial: $viewModel.isShowingTutorial)
+        }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(CustomColors.sand)
         .ignoresSafeArea()
