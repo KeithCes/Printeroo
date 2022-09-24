@@ -24,6 +24,8 @@ struct PlacedOrder: View {
     
     @State var isOrderCancelledSuccessfully: Bool = false
     
+    @State var isShowingCancelConfirmation: Bool = false
+    
     init(order: OrderInfo) {
         self.order = order
     }
@@ -62,19 +64,59 @@ struct PlacedOrder: View {
             
             // only show cancel option if package isnt packed, shipping, or already cancelled
             if !self.isOrderCancelledSuccessfully && self.order.status != "cancelled" && self.order.status != "packed" && self.order.status != "shipping" {
-                Button("CANCEL ORDER") {
-                    self.deactivateOrder(orderID: self.order.orderID)
+                if !self.isShowingCancelConfirmation {
+                    Button("CANCEL ORDER") {
+                        self.isShowingCancelConfirmation.toggle()
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .foregroundColor(.white)
+                    .background(Rectangle()
+                        .fill(Color.red.opacity(0.6))
+                        .frame(width: 200, height: 30)
+                        .cornerRadius(15)
+                    )
+                    .padding(.top, 10)
                 }
-                .font(.system(size: 20, weight: .bold, design: .rounded))
-                .foregroundColor(.white)
-                .background(Rectangle()
-                    .fill(Color.red.opacity(0.6))
-                    .frame(width: 200, height: 30)
-                    .cornerRadius(15)
-                )
-                .padding(.top, 10)
+                else {
+                    VStack {
+                        Text("Are you sure you want to cancel your order?")
+                            .font(.system(size: 20, weight: .bold, design: .rounded))
+                            .fixedSize(horizontal: false, vertical: true)
+                            .foregroundColor(.red.opacity(0.6))
+                        HStack {
+                            Button("Yes") {
+                                self.deactivateOrder(orderID: self.order.orderID)
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .font(.system(size: 20, weight: .bold, design: .rounded))
+                            .foregroundColor(.white)
+                            .background(Rectangle()
+                                .fill(CustomColors.darkGray.opacity(0.6))
+                                .frame(width: 50, height: 30)
+                                .cornerRadius(15)
+                            )
+                            .padding(.top, 10)
+                            
+                            Spacer()
+                                .frame(width: 50)
+                            
+                            Button("No") {
+                                self.isShowingCancelConfirmation.toggle()
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            .font(.system(size: 20, weight: .bold, design: .rounded))
+                            .foregroundColor(.white)
+                            .background(Rectangle()
+                                .fill(Color.red.opacity(0.6))
+                                .frame(width: 50, height: 30)
+                                .cornerRadius(15)
+                            )
+                            .padding(.top, 10)
+                        }
+                    }
+                }
             }
-            
         }
         .padding(.horizontal, 20)
         .toast(message: self.toastMessage,
