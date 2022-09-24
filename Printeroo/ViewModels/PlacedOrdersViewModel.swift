@@ -41,6 +41,11 @@ final class PlacedOrdersViewModel: ObservableObject {
                     print(error)
                 }
             }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/YYYY"
+            
+            self.allOrders = self.allOrders.sorted(by: { dateFormatter.date(from: $0.dateOfCreation)?.compare(dateFormatter.date(from: $1.dateOfCreation)!) == .orderedDescending })
         })
     }
 }
