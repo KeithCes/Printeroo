@@ -14,7 +14,7 @@ import FirebaseStorage
 final class PlacedOrdersViewModel: ObservableObject {
     
     @Published var allOrders: [OrderInfo] = []
-    
+
     
     func getOrders() {
         

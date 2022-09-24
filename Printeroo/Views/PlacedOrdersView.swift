@@ -23,8 +23,10 @@ struct PlacedOrdersView: View {
             CustomTitleText(labelText: "Orders:")
             
             List(viewModel.allOrders, id: \.self) { order in
-                VStack {
+                HStack {
+                    Spacer()
                     PlacedOrder(order: order)
+                    Spacer()
                 }
                 .listRowSeparator(.hidden)
                 .listRowBackground(Rectangle()

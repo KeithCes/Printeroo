@@ -70,6 +70,7 @@ final class OrderConfirmViewModel: ObservableObject {
         
         let orderDetails = [
             "orderID": orderID,
+            "paymentIntentID": self.paymentIntentID,
             "itemNamesAmounts": self.itemNamesAmounts,
             "imagePath": orderImagePath,
             "userID": userID,

@@ -12,6 +12,7 @@ struct OrderInfo: Codable, Hashable {
     var imagePath: String
     var itemNamesAmounts: [String: Int]
     var orderID: String
+    var paymentIntentID: String
     var status: String
     var totalCost: Double
     var userID: String
