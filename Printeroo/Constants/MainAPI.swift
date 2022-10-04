@@ -8,5 +8,5 @@
 import Foundation
 
 struct MainAPI {
-    static let url = "https://printeroo-vercel.vercel.app"
+    static let url = "https://printeroo.uc.r.appspot.com"
 }
