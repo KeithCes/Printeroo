@@ -47,7 +47,7 @@ final class OrderConfirmViewModel: ObservableObject {
         
         let storage = Storage.storage()
         let storageRef = storage.reference()
-        let orderImagePath = "orders/" + orderID + "/" + "orderImage.png"
+        let orderImagePath = "orders/" + userID + "/" + orderID + "/" + "orderImage.png"
         let orderImageRef = storageRef.child(orderImagePath)
         
         let metadata = StorageMetadata()
