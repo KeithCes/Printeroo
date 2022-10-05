@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import AVFoundation
+import Mantis
 
 final class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
 
@@ -30,6 +31,9 @@ final class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDe
     @Published var isShowingOrderSelection: Bool = false
     @Published var isShowingEditor: Bool = false
     @Published var isShowingSettings: Bool = false
+    
+    @Published var isCropPressed: Bool = false
+    @Published var cropStyle: CropShapeType = CropShapeType.rect
     
     @Published var isFromCameraRoll = false
     
@@ -164,6 +168,7 @@ final class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDe
                 }
                 self.isSaved = false
                 self.retakeTapped = false
+                self.isCropPressed = false
             }
         }
     }

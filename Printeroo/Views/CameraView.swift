@@ -61,15 +61,95 @@ struct CameraView: View {
                 Spacer()
                 
                 if viewModel.isTaken {
-                    Button(action: {viewModel.isShowingEditor.toggle()}, label: {
-                        Image(systemName: "crop")
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(CustomColors.sand)
-                            .clipShape(Circle())
-                    })
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                    .padding(.trailing, 30)
+                    if viewModel.isCropPressed {
+                        Button(action: {viewModel.isCropPressed.toggle()}, label: {
+                            Image(systemName: "x.circle")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(CustomColors.sand)
+                                .clipShape(Circle())
+                        })
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.trailing, 30)
+                        .padding(.bottom, 15)
+                        Button(action: {                            viewModel.cropStyle = CropShapeType.rect
+                            viewModel.isShowingEditor.toggle()
+                        }, label: {
+                            Image(systemName: "rectangle.portrait")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(CustomColors.sand)
+                                .clipShape(Circle())
+                        })
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.trailing, 30)
+                        Button(action: {                            viewModel.cropStyle = CropShapeType.square
+                            viewModel.isShowingEditor.toggle()
+                        }, label: {
+                            Image(systemName: "square")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(CustomColors.sand)
+                                .clipShape(Circle())
+                        })
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.trailing, 30)
+                        Button(action: {                            viewModel.cropStyle = CropShapeType.ellipse(maskOnly: false)
+                            viewModel.isShowingEditor.toggle()
+                        }, label: {
+                            Image(systemName: "oval.portrait")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(CustomColors.sand)
+                                .clipShape(Circle())
+                        })
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.trailing, 30)
+                        Button(action: {                            viewModel.cropStyle = CropShapeType.circle(maskOnly: false)
+                            viewModel.isShowingEditor.toggle()
+                        }, label: {
+                            Image(systemName: "circle")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(CustomColors.sand)
+                                .clipShape(Circle())
+                        })
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.trailing, 30)
+                        Button(action: {                            viewModel.cropStyle = CropShapeType.diamond(maskOnly: false)
+                            viewModel.isShowingEditor.toggle()
+                        }, label: {
+                            Image(systemName: "diamond")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(CustomColors.sand)
+                                .clipShape(Circle())
+                        })
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.trailing, 30)
+                        Button(action: {                            viewModel.cropStyle = CropShapeType.heart(maskOnly: false)
+                            viewModel.isShowingEditor.toggle()
+                        }, label: {
+                            Image(systemName: "heart")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(CustomColors.sand)
+                                .clipShape(Circle())
+                        })
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.trailing, 30)
+                    }
+                    else {
+                        Button(action: {viewModel.isCropPressed.toggle()}, label: {
+                            Image(systemName: "crop")
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(CustomColors.sand)
+                                .clipShape(Circle())
+                        })
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.trailing, 30)
+                    }
                 }
                 
                 Spacer()
@@ -160,7 +240,7 @@ struct CameraView: View {
                 viewModel.isShowingOrderSelection.toggle()
             }
         }) {
-            ImageEditor(image: $viewModel.selectedImage, isShowingEditor: $viewModel.isShowingEditor, imageData: $viewModel.picData)
+            ImageEditor(image: $viewModel.selectedImage, isShowingEditor: $viewModel.isShowingEditor, imageData: $viewModel.picData, cropStyle: $viewModel.cropStyle)
         }
         .fullScreenCover(isPresented: $viewModel.isShowingSettings) {
             YourProfileView(isShowingSettings: $viewModel.isShowingSettings)

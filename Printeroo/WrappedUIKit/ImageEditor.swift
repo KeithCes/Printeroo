@@ -15,6 +15,7 @@ struct ImageEditor: UIViewControllerRepresentable {
     @Binding var image: UIImage
     @Binding var isShowingEditor: Bool
     @Binding var imageData: Data
+    @Binding var cropStyle: CropShapeType
  
     func makeCoordinator() -> Coordinator {
         return ImageEditorCoordinator(image: $image, isShowingEditor: $isShowingEditor)
@@ -27,6 +28,7 @@ struct ImageEditor: UIViewControllerRepresentable {
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImageEditor>) -> Mantis.CropViewController {
         let editor = Mantis.cropViewController(image: UIImage(data: imageData)!)
         editor.delegate = context.coordinator
+        editor.config.cropShapeType = self.cropStyle
         return editor
     }
 }
