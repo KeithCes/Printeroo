@@ -28,7 +28,7 @@ struct OrderSelectionView: View {
                     .foregroundColor(CustomColors.darkGray)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.leading, 30)
+            .padding(.leading, 20)
             .padding(.top, 50)
             
             ZStack {

@@ -58,7 +58,7 @@ struct CreateAccountView: View {
                     .keyboardType(.numberPad)
                 
                 Group {
-                    CustomTextbox(field: $viewModel.address, placeholderText: "Billing Address")
+                    CustomTextbox(field: $viewModel.address, placeholderText: "Shipping Address")
                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 30, trailing: 20))
                     
                     CustomTextbox(field: $viewModel.city, placeholderText: "City")

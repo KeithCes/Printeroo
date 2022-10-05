@@ -18,7 +18,7 @@ struct ChangeAddressView: View {
     
     var body: some View {
         VStack {
-            CustomTitleText(labelText: "CHANGE ADDRESS")
+            CustomTitleText(labelText: "CHANGE SHIPPING ADDRESS")
                 .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0))
             
             VStack {

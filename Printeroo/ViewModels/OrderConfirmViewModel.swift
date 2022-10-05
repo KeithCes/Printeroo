@@ -32,6 +32,10 @@ final class OrderConfirmViewModel: ObservableObject {
     
     @Published var isFromCameraRoll: Bool?
     
+    @Published var isShowingAddressView: Bool = false
+    
+    @Published var userInfo: UserInfo?
+    
     
     func sendOrderFirebase() {
         let ref = Database.database().reference()
@@ -78,6 +82,11 @@ final class OrderConfirmViewModel: ObservableObject {
             "dateOfCreation": currentDateString,
             "status": "placed",
             "isCameraDiscountApplied": !isFromCameraRoll,
+            "address": self.userInfo?.address ?? "",
+            "state": self.userInfo?.state ?? "",
+            "city": self.userInfo?.city ?? "",
+            "country": self.userInfo?.country ?? "",
+            "zipcode": self.userInfo?.zipcode ?? ""
         ] as [String : Any]
         
         ref.child("orders").child(orderID).setValue(orderDetails)
@@ -104,6 +113,8 @@ final class OrderConfirmViewModel: ObservableObject {
                 let userInfo = try JSONDecoder().decode(UserInfo.self, from: jsonData)
                 
                 self.userStripeCustomerID = userInfo.stripeCustomerID
+                
+                self.userInfo = userInfo
                 
                 self.preparePaymentSheet(completion: { _ in })
             }

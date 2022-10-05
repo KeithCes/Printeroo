@@ -33,7 +33,7 @@ struct OrderConfirmView: View {
                     .foregroundColor(CustomColors.darkGray)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.leading, 30)
+            .padding(.leading, 20)
             .padding(.top, 50)
             
             CustomTitleText(labelText: "PLEASE CONFIRM THE FOLLOWING: ")
@@ -109,6 +109,23 @@ struct OrderConfirmView: View {
                 .cornerRadius(10)
             )
             .padding(.all, 20)
+            
+            Button("CHANGE SAVED ADDRESS") {
+                viewModel.isShowingAddressView.toggle()
+            }
+            .font(.system(size: 16, weight: .bold, design: .rounded))
+            .foregroundColor(.white)
+            .background(Rectangle()
+                .fill(CustomColors.darkGray.opacity(0.6))
+                .frame(width: 275, height: 30)
+                .cornerRadius(15)
+            )
+            .padding(.bottom, 50)
+            .sheet(isPresented: $viewModel.isShowingAddressView, onDismiss: {
+                viewModel.getUserInfo()
+            }) {
+                ChangeAddressView(userInfo: $viewModel.userInfo)
+            }
             
             Spacer()
             

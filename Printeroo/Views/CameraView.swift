@@ -33,7 +33,7 @@ struct CameraView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.leading, 30)
                     }
-                    else {
+                    else if !viewModel.isTaken {
                         Button(action: {
                             viewModel.isShowingSettings.toggle()
                         }, label: {
@@ -83,6 +83,7 @@ struct CameraView: View {
                         })
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, 30)
+                        /*
                         Button(action: {                            viewModel.cropStyle = CropShapeType.square
                             viewModel.isShowingEditor.toggle()
                         }, label: {
@@ -94,6 +95,7 @@ struct CameraView: View {
                         })
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, 30)
+                         */
                         Button(action: {                            viewModel.cropStyle = CropShapeType.ellipse(maskOnly: false)
                             viewModel.isShowingEditor.toggle()
                         }, label: {
@@ -105,6 +107,7 @@ struct CameraView: View {
                         })
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, 30)
+                        /*
                         Button(action: {                            viewModel.cropStyle = CropShapeType.circle(maskOnly: false)
                             viewModel.isShowingEditor.toggle()
                         }, label: {
@@ -116,6 +119,7 @@ struct CameraView: View {
                         })
                         .frame(maxWidth: .infinity, alignment: .trailing)
                         .padding(.trailing, 30)
+                         */
                         Button(action: {                            viewModel.cropStyle = CropShapeType.diamond(maskOnly: false)
                             viewModel.isShowingEditor.toggle()
                         }, label: {

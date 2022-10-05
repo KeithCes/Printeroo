@@ -141,11 +141,6 @@ final class CreateAccountViewModel: ObservableObject {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try! JSONEncoder().encode([
-            "addressLine1" : address,
-            "addressCity" : city,
-            "addressCountry" : country,
-            "addressState": state,
-            "addressPostalCode" : zipcode,
             "email" : email,
             "name" : firstName + " " + lastName,
             "phone" : phoneNumber
