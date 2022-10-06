@@ -69,6 +69,8 @@
 		844E873A28D3FDF200325848 /* PlacedOrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E873928D3FDF200325848 /* PlacedOrdersViewModel.swift */; };
 		844E873C28D3FF7100325848 /* OrderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E873B28D3FF7100325848 /* OrderInfo.swift */; };
 		844E873E28D512BB00325848 /* PlacedOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844E873D28D512BA00325848 /* PlacedOrder.swift */; };
+		847215DE28EE4D7D00294F68 /* SelectedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847215DD28EE4D7D00294F68 /* SelectedImageView.swift */; };
+		847215E028EE4D8C00294F68 /* SelectedImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847215DF28EE4D8C00294F68 /* SelectedImageViewModel.swift */; };
 		848679A028DF71E000DF4D8B /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486799F28DF71E000DF4D8B /* TutorialView.swift */; };
 		848679A228DF720300DF4D8B /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848679A128DF720300DF4D8B /* TutorialViewModel.swift */; };
 		848679A428DF891E00DF4D8B /* LoopingPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848679A328DF891E00DF4D8B /* LoopingPlayer.swift */; };
@@ -147,6 +149,8 @@
 		844E873928D3FDF200325848 /* PlacedOrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacedOrdersViewModel.swift; sourceTree = "<group>"; };
 		844E873B28D3FF7100325848 /* OrderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderInfo.swift; sourceTree = "<group>"; };
 		844E873D28D512BA00325848 /* PlacedOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacedOrder.swift; sourceTree = "<group>"; };
+		847215DD28EE4D7D00294F68 /* SelectedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageView.swift; sourceTree = "<group>"; };
+		847215DF28EE4D8C00294F68 /* SelectedImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageViewModel.swift; sourceTree = "<group>"; };
 		8486799F28DF71E000DF4D8B /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		848679A128DF720300DF4D8B /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		848679A328DF891E00DF4D8B /* LoopingPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopingPlayer.swift; sourceTree = "<group>"; };
@@ -279,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				84248B3828CBE303001582D0 /* OrderConfirmView.swift */,
+				847215DD28EE4D7D00294F68 /* SelectedImageView.swift */,
 				84248B1D28CA4A50001582D0 /* OrderSelectionView.swift */,
 				84248B3028CAB3F1001582D0 /* CameraView.swift */,
 				8416169028CD1F22002D959A /* LoginView.swift */,
@@ -340,12 +345,13 @@
 			isa = PBXGroup;
 			children = (
 				841616BD28D0EA2E002D959A /* OrderConfirmViewModel.swift */,
+				847215DF28EE4D8C00294F68 /* SelectedImageViewModel.swift */,
 				84248B3C28CBE83D001582D0 /* OrderSelectionViewModel.swift */,
 				84248B2928CA75ED001582D0 /* CameraViewModel.swift */,
 				8416169228CD1F78002D959A /* LoginViewModel.swift */,
-				8416169628CD2002002D959A /* CreateAccountViewModel.swift */,
 				8416168E28CD1E5B002D959A /* PrelogViewModel.swift */,
 				841616C828D3A80D002D959A /* YourProfileViewModel.swift */,
+				8416169628CD2002002D959A /* CreateAccountViewModel.swift */,
 				841616CE28D3AAD0002D959A /* ChangeAddressViewModel.swift */,
 				844E873928D3FDF200325848 /* PlacedOrdersViewModel.swift */,
 				848679A128DF720300DF4D8B /* TutorialViewModel.swift */,
@@ -562,9 +568,11 @@
 				844E873E28D512BB00325848 /* PlacedOrder.swift in Sources */,
 				8416169128CD1F22002D959A /* LoginView.swift in Sources */,
 				841616C028D0ED0E002D959A /* MainAPI.swift in Sources */,
+				847215E028EE4D8C00294F68 /* SelectedImageViewModel.swift in Sources */,
 				841616D128D3AB0E002D959A /* ChangeAddressView.swift in Sources */,
 				848679A228DF720300DF4D8B /* TutorialViewModel.swift in Sources */,
 				841616A128CD2216002D959A /* CustomDimensions.swift in Sources */,
+				847215DE28EE4D7D00294F68 /* SelectedImageView.swift in Sources */,
 				841616BE28D0EA2E002D959A /* OrderConfirmViewModel.swift in Sources */,
 				844E873C28D3FF7100325848 /* OrderInfo.swift in Sources */,
 				8416169F28CD215F002D959A /* CustomTitleText.swift in Sources */,

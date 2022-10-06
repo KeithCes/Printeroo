@@ -31,6 +31,7 @@ struct OrderSelectionView: View {
             .padding(.leading, 20)
             .padding(.top, 50)
             
+            /*
             ZStack {
                 Rectangle()
                     .foregroundColor(.white.opacity(0.1))
@@ -42,35 +43,108 @@ struct OrderSelectionView: View {
                     
                     // TODO: onTap expand image view to full screen so users can preview
                     Image(uiImage: self.selectedImage)
-                        .resizable()
-                        .cornerRadius(10)
-                        .padding(.bottom, 10)
-                        .scaledToFit()
-                        .frame(width: 100, height: 180)
-                }
-            }
-
+             .resizable()
+             .cornerRadius(10)
+             .padding(.bottom, 10)
+             .scaledToFit()
+             .frame(width: 100, height: 180)
+             }
+             }
+             */
             
             ScrollView {
-                HStack {
-                    CheckoutItem(itemID: 0, image: UIImage(named: "SinglePolaroid") ?? UIImage(), price: 5, itemName: "Polaroid", selectedItems: $viewModel.selectedItems)
-                    CheckoutItem(itemID: 1, image: UIImage(named: "Mug") ?? UIImage(), price: 3.99, itemName: "Printed Mug", selectedItems: $viewModel.selectedItems)
+                VStack {
+                    HStack {
+                        CustomTitleText(labelText: "Die-Cut Stickers", fontSize: 16)
+                            .padding(.top, 10)
+                            .padding(.leading, 10)
+                        Spacer()
+                    }
+                    ScrollView(.horizontal) {
+                        HStack {
+                            CheckoutItem(itemID: 401, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "Best Fit", selectedItems: $viewModel.selectedItems)
+                        }
+                    }
                 }
-                HStack {
-                    CheckoutItem(itemID: 2, image: UIImage(named: "Frisbee") ?? UIImage(), price: 15, itemName: "Frisbee", selectedItems: $viewModel.selectedItems)
-                    CheckoutItem(itemID: 3, image: UIImage(named: "Koozie") ?? UIImage(), price: 0, itemName: "Koozie", selectedItems: $viewModel.selectedItems)
+                VStack {
+                    HStack {
+                        CustomTitleText(labelText: "Sticker Sheet", fontSize: 16)
+                            .padding(.top, 10)
+                            .padding(.leading, 10)
+                        Spacer()
+                    }
+                    ScrollView(.horizontal) {
+                        HStack {
+                            CheckoutItem(itemID: 201, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "8.5\"x11\"", selectedItems: $viewModel.selectedItems)
+                        }
+                    }
                 }
-                HStack {
-                    CheckoutItem(itemID: 4, image: UIImage(named: "GlossPhoto") ?? UIImage(), price: 69, itemName: "Gloss Photo", selectedItems: $viewModel.selectedItems)
-                    CheckoutItem(itemID: 5, image: UIImage(named: "GlossPhotoFrame") ?? UIImage(), price: 69.69, itemName: "Framed Gloss Photo", selectedItems: $viewModel.selectedItems)
+                VStack {
+                    HStack {
+                        CustomTitleText(labelText: "Circle Stickers", fontSize: 16)
+                            .padding(.top, 10)
+                            .padding(.leading, 10)
+                        Spacer()
+                    }
+                    ScrollView(.horizontal) {
+                        HStack {
+                            CheckoutItem(itemID: 0, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "1\"x1\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 1, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "2\"x2\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 2, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "3\"x3\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 3, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "4\"x4\"", selectedItems: $viewModel.selectedItems)
+                        }
+                    }
                 }
-                HStack {
-                    CheckoutItem(itemID: 6, image: UIImage(named: "Test") ?? UIImage(), price: 30, itemName: "Temporary Tattoo", selectedItems: $viewModel.selectedItems)
-                    // BLANK
-                    CheckoutItem(itemID: 7, image: UIImage(named: "") ?? UIImage(), price: 0, itemName: "", selectedItems: $viewModel.selectedItems)
-                        .isHidden(true)
+                VStack {
+                    HStack {
+                        CustomTitleText(labelText: "Square Stickers", fontSize: 16)
+                            .padding(.top, 10)
+                            .padding(.leading, 10)
+                        Spacer()
+                    }
+                    ScrollView(.horizontal) {
+                        HStack {
+                            CheckoutItem(itemID: 100, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "1\"x1\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 101, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "2\"x2\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 102, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "3\"x3\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 103, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "4\"x4\"", selectedItems: $viewModel.selectedItems)
+                        }
+                    }
+                }
+                VStack {
+                    HStack {
+                        CustomTitleText(labelText: "Heart Stickers", fontSize: 16)
+                            .padding(.top, 10)
+                            .padding(.leading, 10)
+                        Spacer()
+                    }
+                    ScrollView(.horizontal) {
+                        HStack {
+                            CheckoutItem(itemID: 300, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "1\"x1\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 301, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "2\"x2\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 302, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "3\"x3\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 303, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "4\"x4\"", selectedItems: $viewModel.selectedItems)
+                        }
+                    }
+                }
+                VStack {
+                    HStack {
+                        CustomTitleText(labelText: "Diamond Stickers", fontSize: 16)
+                            .padding(.top, 10)
+                            .padding(.leading, 10)
+                        Spacer()
+                    }
+                    ScrollView(.horizontal) {
+                        HStack {
+                            CheckoutItem(itemID: 500, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "1\"x1\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 501, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "2\"x2\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 502, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "3\"x3\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 503, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "4\"x4\"", selectedItems: $viewModel.selectedItems)
+                        }
+                    }
                 }
             }
+            
             .background() {
                 Rectangle()
                     .foregroundColor(.white.opacity(0.3))
@@ -79,7 +153,7 @@ struct OrderSelectionView: View {
             .cornerRadius(10)
             .padding()
             
-            Button("ORDER") {
+            Button("CART ") {
                 // TODO: make sure at least one item is slected or hide/disbale button
                 viewModel.isShowingOrderConfirm.toggle()
             }

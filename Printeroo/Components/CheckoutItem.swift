@@ -34,7 +34,7 @@ struct CheckoutItem: View {
         self.itemName = itemName
         self._selectedItems = selectedItems
         
-        self.viewWidth = 172
+        self.viewWidth = 142
         self.viewHeight = self.viewWidth
         self.imageWidth = self.viewWidth - 22
         self.imageHeight = self.viewHeight - 48

@@ -40,7 +40,7 @@ struct OrderConfirmView: View {
             CustomTitleText(labelText: "SELECTED ITEMS", fontSize: 24)
                 .padding(.top, 20)
             
-            // this is terrible please change this to by dynamic and not just 100x
+            // TODO: this is terrible please change this to by dynamic and not just 100x
             // CHECK PlacedOrdersView
             ZStack {
                 VStack {
