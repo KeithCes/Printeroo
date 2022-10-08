@@ -40,11 +40,11 @@ struct OrderConfirmView: View {
             CustomTitleText(labelText: "SELECTED ITEMS", fontSize: 24)
                 .padding(.top, 20)
             
-            // TODO: this is terrible please change this to by dynamic and not just 100x
+            // TODO: this is terrible please change this to by dynamic and not just 1000x
             // CHECK PlacedOrdersView
             ZStack {
                 VStack {
-                    ForEach(0..<100) { itemNumber in
+                    ForEach(0..<1000) { itemNumber in
                         if let selectedItem = selectedItems[itemNumber] {
                             HStack {
                                 Text(selectedItem["itemName"] as! String)
@@ -161,6 +161,11 @@ struct OrderConfirmView: View {
             for item in selectedItems.values {
                 viewModel.totalCost += item["price"] as! Double * Double(item["amount"] as! Int)
                 viewModel.itemNamesAmounts[item["itemName"] as! String] = item["amount"] as? Int
+                
+                if let itemName = (item["itemName"] as? String)?.replacingOccurrences(of: "\"", with: ""),
+                    let itemType = (item["itemType"] as? String)?.replacingOccurrences(of: " ", with: "").lowercased() {
+                    viewModel.itemNamesPictures[itemType + itemName] = item["editedImage"] as? UIImage
+                }
             }
             
             viewModel.pictureTakenInAppDiscount = viewModel.totalCost * 0.1

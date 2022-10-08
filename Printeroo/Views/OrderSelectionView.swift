@@ -22,7 +22,7 @@ struct OrderSelectionView: View {
             Button(action: {
                 isShowingOrderSelection = false
             }) {
-                Image(systemName: "x.circle")
+                Image(systemName: "arrow.backward.circle")
                     .resizable()
                     .frame(width: 32, height: 32)
                     .foregroundColor(CustomColors.darkGray)
@@ -30,27 +30,6 @@ struct OrderSelectionView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.leading, 20)
             .padding(.top, 50)
-            
-            /*
-            ZStack {
-                Rectangle()
-                    .foregroundColor(.white.opacity(0.1))
-                    .frame(width: CustomDimensions.width, height: 250)
-                    .cornerRadius(10)
-                VStack {
-                    CustomTitleText(labelText: "SELECTED PICTURE: ", fontSize: 28)
-                        .padding(.top, 10)
-                    
-                    // TODO: onTap expand image view to full screen so users can preview
-                    Image(uiImage: self.selectedImage)
-             .resizable()
-             .cornerRadius(10)
-             .padding(.bottom, 10)
-             .scaledToFit()
-             .frame(width: 100, height: 180)
-             }
-             }
-             */
             
             ScrollView {
                 VStack {
@@ -62,7 +41,7 @@ struct OrderSelectionView: View {
                     }
                     ScrollView(.horizontal) {
                         HStack {
-                            CheckoutItem(itemID: 401, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "Best Fit", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 401, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "Best Fit", itemType: "Die-Cut", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
                         }
                     }
                 }
@@ -75,7 +54,7 @@ struct OrderSelectionView: View {
                     }
                     ScrollView(.horizontal) {
                         HStack {
-                            CheckoutItem(itemID: 201, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "8.5\"x11\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 201, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "8.5\"x11\"", itemType: "Sticker Sheet", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
                         }
                     }
                 }
@@ -88,10 +67,10 @@ struct OrderSelectionView: View {
                     }
                     ScrollView(.horizontal) {
                         HStack {
-                            CheckoutItem(itemID: 0, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "1\"x1\"", selectedItems: $viewModel.selectedItems)
-                            CheckoutItem(itemID: 1, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "2\"x2\"", selectedItems: $viewModel.selectedItems)
-                            CheckoutItem(itemID: 2, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "3\"x3\"", selectedItems: $viewModel.selectedItems)
-                            CheckoutItem(itemID: 3, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "4\"x4\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 0, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "1\"x1\"", itemType: "Circle Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
+                            CheckoutItem(itemID: 1, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "2\"x2\"", itemType: "Circle Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
+                            CheckoutItem(itemID: 2, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "3\"x3\"", itemType: "Circle Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
+                            CheckoutItem(itemID: 3, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "4\"x4\"", itemType: "Circle Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
                         }
                     }
                 }
@@ -104,10 +83,10 @@ struct OrderSelectionView: View {
                     }
                     ScrollView(.horizontal) {
                         HStack {
-                            CheckoutItem(itemID: 100, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "1\"x1\"", selectedItems: $viewModel.selectedItems)
-                            CheckoutItem(itemID: 101, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "2\"x2\"", selectedItems: $viewModel.selectedItems)
-                            CheckoutItem(itemID: 102, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "3\"x3\"", selectedItems: $viewModel.selectedItems)
-                            CheckoutItem(itemID: 103, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "4\"x4\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 100, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "1\"x1\"", itemType: "Square Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
+                            CheckoutItem(itemID: 101, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "2\"x2\"", itemType: "Square Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
+                            CheckoutItem(itemID: 102, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "3\"x3\"", itemType: "Square Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
+                            CheckoutItem(itemID: 103, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "4\"x4\"", itemType: "Square Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
                         }
                     }
                 }
@@ -120,10 +99,10 @@ struct OrderSelectionView: View {
                     }
                     ScrollView(.horizontal) {
                         HStack {
-                            CheckoutItem(itemID: 300, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "1\"x1\"", selectedItems: $viewModel.selectedItems)
-                            CheckoutItem(itemID: 301, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "2\"x2\"", selectedItems: $viewModel.selectedItems)
-                            CheckoutItem(itemID: 302, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "3\"x3\"", selectedItems: $viewModel.selectedItems)
-                            CheckoutItem(itemID: 303, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "4\"x4\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 300, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "1\"x1\"", itemType: "Heart Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
+                            CheckoutItem(itemID: 301, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "2\"x2\"", itemType: "Heart Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
+                            CheckoutItem(itemID: 302, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "3\"x3\"", itemType: "Heart Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
+                            CheckoutItem(itemID: 303, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "4\"x4\"", itemType: "Heart Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
                         }
                     }
                 }
@@ -136,10 +115,10 @@ struct OrderSelectionView: View {
                     }
                     ScrollView(.horizontal) {
                         HStack {
-                            CheckoutItem(itemID: 500, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "1\"x1\"", selectedItems: $viewModel.selectedItems)
-                            CheckoutItem(itemID: 501, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "2\"x2\"", selectedItems: $viewModel.selectedItems)
-                            CheckoutItem(itemID: 502, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "3\"x3\"", selectedItems: $viewModel.selectedItems)
-                            CheckoutItem(itemID: 503, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "4\"x4\"", selectedItems: $viewModel.selectedItems)
+                            CheckoutItem(itemID: 500, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "1\"x1\"", itemType: "Diamond Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
+                            CheckoutItem(itemID: 501, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "2\"x2\"", itemType: "Diamond Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
+                            CheckoutItem(itemID: 502, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "3\"x3\"", itemType: "Diamond Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
+                            CheckoutItem(itemID: 503, image: UIImage(named: "Test") ?? UIImage(), price: 3.99, itemName: "4\"x4\"", itemType: "Diamond Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
                         }
                     }
                 }
@@ -153,7 +132,7 @@ struct OrderSelectionView: View {
             .cornerRadius(10)
             .padding()
             
-            Button("CART ") {
+            Button("CART") {
                 // TODO: make sure at least one item is slected or hide/disbale button
                 viewModel.isShowingOrderConfirm.toggle()
             }

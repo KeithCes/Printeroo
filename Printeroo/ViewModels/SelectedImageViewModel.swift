@@ -10,10 +10,7 @@ import SwiftUI
 
 final class SelectedImageViewModel: ObservableObject {
     
-    @Published var firstName: String = ""
-    @Published var lastName: String = ""
-    
-    func checkIfCreateInfoValid() {
-        
-    }
+    @Published var isShowingOrderSelection: Bool = false
+    @Published var selectedImage: UIImage = UIImage()
+    @Published var isFromCameraRoll: Bool = false
 }

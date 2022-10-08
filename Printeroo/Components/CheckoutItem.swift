@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Mantis
 
 struct CheckoutItem: View {
     
@@ -14,25 +15,31 @@ struct CheckoutItem: View {
     private var image: UIImage
     private var price: Double
     private var itemName: String
-    
-    @State var amount: Int = 0
+    private var itemType: String
     
     private var imageWidth: CGFloat
     private var imageHeight: CGFloat
     private var viewWidth: CGFloat
     private var viewHeight: CGFloat
     
-    @State var isSelected: Bool = false
+    @State var isShowingEditor: Bool = false
+    @State var isShowingCart: Bool = false
+    
+    @State var croppedImage: UIImage = UIImage()
+    @State var cropStyle: CropShapeType = CropShapeType.circle(maskOnly: false)
     
     @Binding var selectedItems: [Int: [String: Any]]
+    @Binding var selectedImage: UIImage
     
     
-    init(itemID: Int, image: UIImage, price: Double, itemName: String, selectedItems: Binding<[ Int: [String: Any]]>) {
+    init(itemID: Int, image: UIImage, price: Double, itemName: String, itemType: String, selectedItems: Binding<[ Int: [String: Any]]>, selectedImage: Binding<UIImage>) {
         self.itemID = itemID
         self.image = image
         self.price = price
         self.itemName = itemName
+        self.itemType = itemType
         self._selectedItems = selectedItems
+        self._selectedImage = selectedImage
         
         self.viewWidth = 142
         self.viewHeight = self.viewWidth
@@ -51,40 +58,6 @@ struct CheckoutItem: View {
                 .frame(width: self.imageWidth, height: self.imageHeight)
                 .cornerRadius(10)
                 .padding(.bottom, 20)
-                .blur(radius: !self.isSelected ? 0 : 2)
-            VStack {
-                Text(String(self.amount))
-                    .foregroundColor(.white)
-                    .background(Rectangle()
-                        .fill(CustomColors.darkGray.opacity(0.5))
-                        .frame(width: 25, height: 25)
-                        .cornerRadius(5)
-                        .padding()
-                    )
-                    .isHidden(self.amount == 0)
-                HStack {
-                    Image(systemName: "plus")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(CustomColors.sand)
-                        .clipShape(Circle())
-                        .onTapGesture {
-                            self.amount += 1
-                            self.selectedItems[self.itemID]?["amount"] = self.amount
-                        }
-                        .isHidden(self.amount == 0)
-                    Image(systemName: "minus")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(CustomColors.sand)
-                        .clipShape(Circle())
-                        .onTapGesture {
-                            self.amount -= 1
-                            self.selectedItems[self.itemID]?["amount"] = self.amount
-                        }
-                        .isHidden(self.amount == 0)
-                }
-            }
             VStack {
                 HStack {
                     Spacer()
@@ -113,24 +86,40 @@ struct CheckoutItem: View {
             }
             
         }
-        .onChange(of: self.amount, perform: { _ in
-            if self.isSelected && self.amount == 0 {
-                self.isSelected = false
-            }
-        })
-        .onTapGesture {
-            if self.isSelected && self.amount == 0 {
-                self.selectedItems.removeValue(forKey: self.itemID)
-                self.isSelected = false
-            }
-            else {
-                self.selectedItems[self.itemID] = ["itemName": self.itemName, "price": self.price, "amount": self.amount]
-                self.isSelected = true
+        .sheet(isPresented: self.$isShowingCart, onDismiss: {
+            self.croppedImage = UIImage()
+        }) {
+            AddToCartEditView(itemID: self.itemID, price: self.price, itemName: self.itemName, itemType: self.itemType, isShowingCart: self.$isShowingCart, selectedItems: self.$selectedItems, edittedImage: self.$croppedImage)
+        }
+        .fullScreenCover(isPresented: self.$isShowingEditor, onDismiss: {
+            
+            // if editting done successfully
+            
+            if self.itemType == "Circle Sticker" || self.itemType == "Square Sticker" || self.itemType == "Diamond Sticker" || self.itemType == "Heart Sticker" {
                 
-                if self.amount == 0 {
-                    self.amount += 1
-                    self.selectedItems[self.itemID]?["amount"] = self.amount
+                if self.croppedImage != UIImage() {
+                    self.isShowingCart.toggle()
                 }
+            }
+        }) {
+            ImageEditor(image: self.$croppedImage, isShowingEditor: self.$isShowingEditor, selectedImage: self.$selectedImage, cropStyle: self.$cropStyle)
+        }
+        .onTapGesture {
+            if self.itemType == "Circle Sticker" {
+                self.cropStyle = CropShapeType.circle(maskOnly: false)
+                self.isShowingEditor.toggle()
+            }
+            else if self.itemType == "Square Sticker" {
+                self.cropStyle = CropShapeType.square
+                self.isShowingEditor.toggle()
+            }
+            else if self.itemType == "Diamond Sticker" {
+                self.cropStyle = CropShapeType.diamond(maskOnly: false)
+                self.isShowingEditor.toggle()
+            }
+            else if self.itemType == "Heart Sticker" {
+                self.cropStyle = CropShapeType.heart(maskOnly: false)
+                self.isShowingEditor.toggle()
             }
         }
     }

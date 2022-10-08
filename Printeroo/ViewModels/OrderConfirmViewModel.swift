@@ -25,6 +25,9 @@ final class OrderConfirmViewModel: ObservableObject {
     @Published var paymentResult: PaymentSheetResult?
     
     @Published var itemNamesAmounts: [String: Int] = [:]
+    @Published var itemNamesPictures: [String: UIImage] = [:]
+    @Published var itemNamesImages: [String] = []
+    @Published var itemImages: [UIImage] = []
     
     @Published var isOrderComplete: Bool = false
     
@@ -35,6 +38,9 @@ final class OrderConfirmViewModel: ObservableObject {
     @Published var isShowingAddressView: Bool = false
     
     @Published var userInfo: UserInfo?
+    
+    typealias FileCompletionBlock = () -> Void
+    var block: FileCompletionBlock?
     
     
     func sendOrderFirebase() {
@@ -51,13 +57,26 @@ final class OrderConfirmViewModel: ObservableObject {
         
         let storage = Storage.storage()
         let storageRef = storage.reference()
+        
+        for (key, value) in itemNamesPictures {
+            self.itemNamesImages.append(key)
+            self.itemImages.append(value)
+        }
+        
+        //startUploading {
+            /// All the images have been uploaded successfully.
+       //     print("ASSSSS")
+      //  }
+        
+        UploadImages.saveImages(imagesArray: self.itemImages, orderPath: "orders/" + userID + "/" + orderID + "/", namesArray: self.itemNamesImages)
+        
         let orderImagePath = "orders/" + userID + "/" + orderID + "/" + "orderImage.png"
         let orderImageRef = storageRef.child(orderImagePath)
         
         let metadata = StorageMetadata()
         metadata.contentType = "image/png"
         
-        guard let data: Data = self.selectedImage.jpegData(compressionQuality: 0.20) else {
+        guard let data: Data = self.selectedImage.jpegData(compressionQuality: 0.40) else {
             return
         }
         
@@ -186,6 +205,43 @@ final class OrderConfirmViewModel: ObservableObject {
             print("canceled")
         case .none:
             print("none...")
+        }
+    }
+    
+    func startUploading(completion: @escaping FileCompletionBlock) {
+        if self.itemImages.count == 0 {
+            completion()
+            return;
+        }
+        
+        block = completion
+        uploadImage(forIndex: 0)
+    }
+    
+    func uploadImage(forIndex index:Int) {
+        
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        
+        if index < self.itemImages.count {
+            guard let data: Data = UIImage(named: "Test")!.jpegData(compressionQuality: 0.20) else {
+                return
+            }
+            
+            let orderImagePath = self.itemNamesImages[index] + ".png"
+            let orderImageRef = storageRef.child(orderImagePath)
+            
+            orderImageRef.putData(data, metadata: nil) { (metadata, error) in
+                guard let _ = metadata else {
+                    // error occurred
+                    return
+                }
+                self.uploadImage(forIndex: index + 1)
+            }
+        }
+        
+        if block != nil {
+            block!()
         }
     }
 }

@@ -54,6 +54,8 @@
 		841616D328D3AB3A002D959A /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616D228D3AB3A002D959A /* ChangePasswordView.swift */; };
 		841616D528D3AB67002D959A /* CustomSecureTextboxTitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616D428D3AB67002D959A /* CustomSecureTextboxTitleText.swift */; };
 		841616D728D3F7E0002D959A /* PlacedOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841616D628D3F7E0002D959A /* PlacedOrdersView.swift */; };
+		8423343128F0A86D00B3352E /* AddToCartEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423343028F0A86D00B3352E /* AddToCartEditView.swift */; };
+		8423343728F0F46000B3352E /* UploadImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8423343628F0F46000B3352E /* UploadImages.swift */; };
 		84248B1028C967A3001582D0 /* PrelogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B0F28C967A3001582D0 /* PrelogView.swift */; };
 		84248B1328C967D7001582D0 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B1228C967D7001582D0 /* CustomColors.swift */; };
 		84248B1728C96881001582D0 /* Color+Hexcode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84248B1628C96881001582D0 /* Color+Hexcode.swift */; };
@@ -133,6 +135,8 @@
 		841616D228D3AB3A002D959A /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		841616D428D3AB67002D959A /* CustomSecureTextboxTitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureTextboxTitleText.swift; sourceTree = "<group>"; };
 		841616D628D3F7E0002D959A /* PlacedOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacedOrdersView.swift; sourceTree = "<group>"; };
+		8423343028F0A86D00B3352E /* AddToCartEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartEditView.swift; sourceTree = "<group>"; };
+		8423343628F0F46000B3352E /* UploadImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImages.swift; sourceTree = "<group>"; };
 		84248B0F28C967A3001582D0 /* PrelogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrelogView.swift; sourceTree = "<group>"; };
 		84248B1228C967D7001582D0 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		84248B1628C96881001582D0 /* Color+Hexcode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hexcode.swift"; sourceTree = "<group>"; };
@@ -283,8 +287,9 @@
 			isa = PBXGroup;
 			children = (
 				84248B3828CBE303001582D0 /* OrderConfirmView.swift */,
-				847215DD28EE4D7D00294F68 /* SelectedImageView.swift */,
+				8423343028F0A86D00B3352E /* AddToCartEditView.swift */,
 				84248B1D28CA4A50001582D0 /* OrderSelectionView.swift */,
+				847215DD28EE4D7D00294F68 /* SelectedImageView.swift */,
 				84248B3028CAB3F1001582D0 /* CameraView.swift */,
 				8416169028CD1F22002D959A /* LoginView.swift */,
 				8416169828CD2050002D959A /* CreateAccountView.swift */,
@@ -323,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				8416169428CD1FB8002D959A /* Toast.swift */,
+				8423343628F0F46000B3352E /* UploadImages.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -345,8 +351,8 @@
 			isa = PBXGroup;
 			children = (
 				841616BD28D0EA2E002D959A /* OrderConfirmViewModel.swift */,
-				847215DF28EE4D8C00294F68 /* SelectedImageViewModel.swift */,
 				84248B3C28CBE83D001582D0 /* OrderSelectionViewModel.swift */,
+				847215DF28EE4D8C00294F68 /* SelectedImageViewModel.swift */,
 				84248B2928CA75ED001582D0 /* CameraViewModel.swift */,
 				8416169228CD1F78002D959A /* LoginViewModel.swift */,
 				8416168E28CD1E5B002D959A /* PrelogViewModel.swift */,
@@ -543,8 +549,10 @@
 				8400A91728C941F8002E7AAA /* ContentView.swift in Sources */,
 				8400A91528C941F8002E7AAA /* PrinterooApp.swift in Sources */,
 				84248B1728C96881001582D0 /* Color+Hexcode.swift in Sources */,
+				8423343128F0A86D00B3352E /* AddToCartEditView.swift in Sources */,
 				841616CF28D3AAD0002D959A /* ChangeAddressViewModel.swift in Sources */,
 				841616D528D3AB67002D959A /* CustomSecureTextboxTitleText.swift in Sources */,
+				8423343728F0F46000B3352E /* UploadImages.swift in Sources */,
 				8416168F28CD1E5C002D959A /* PrelogViewModel.swift in Sources */,
 				8416169528CD1FB9002D959A /* Toast.swift in Sources */,
 				841616A528CD22CE002D959A /* StateCodes.swift in Sources */,

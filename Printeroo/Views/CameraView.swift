@@ -176,7 +176,7 @@ struct CameraView: View {
                         
                         Button(action: {
                             viewModel.continueWithPic()
-                            viewModel.isShowingOrderSelection.toggle()
+                            viewModel.isShowingSelectedImage.toggle()
                         }, label: {
                             Text("Continue →")
                                 .foregroundColor(.white)
@@ -228,23 +228,23 @@ struct CameraView: View {
         .fullScreenCover(isPresented: $viewModel.showPicker, onDismiss: {
             if viewModel.selectedImage != UIImage() {
                 viewModel.isFromCameraRoll = true
-                viewModel.isShowingOrderSelection.toggle()
+                viewModel.isShowingSelectedImage.toggle()
             }
         }) {
             ImagePicker(sourceType: viewModel.source == "library" ? .photoLibrary : .camera, selectedImage: $viewModel.selectedImage)
         }
-        .fullScreenCover(isPresented: $viewModel.isShowingOrderSelection, onDismiss: {
+        .fullScreenCover(isPresented: $viewModel.isShowingSelectedImage, onDismiss: {
             viewModel.selectedImage = UIImage()
         }) {
-            OrderSelectionView(isShowingOrderSelection: $viewModel.isShowingOrderSelection, selectedImage: $viewModel.selectedImage, isFromCameraRoll: $viewModel.isFromCameraRoll)
+            SelectedImageView(isShowingSelectedImage: $viewModel.isShowingSelectedImage, selectedImage: $viewModel.selectedImage, isFromCameraRoll: $viewModel.isFromCameraRoll)
         }
         .fullScreenCover(isPresented: $viewModel.isShowingEditor, onDismiss: {
             // if editting done successfully
             if viewModel.selectedImage != UIImage() {
-                viewModel.isShowingOrderSelection.toggle()
+                viewModel.isShowingSelectedImage.toggle()
             }
         }) {
-            ImageEditor(image: $viewModel.selectedImage, isShowingEditor: $viewModel.isShowingEditor, imageData: $viewModel.picData, cropStyle: $viewModel.cropStyle)
+        //    ImageEditor(image: $viewModel.selectedImage, isShowingEditor: $viewModel.isShowingEditor, imageData: $viewModel.picData, cropStyle: $viewModel.cropStyle)
         }
         .fullScreenCover(isPresented: $viewModel.isShowingSettings) {
             YourProfileView(isShowingSettings: $viewModel.isShowingSettings)
