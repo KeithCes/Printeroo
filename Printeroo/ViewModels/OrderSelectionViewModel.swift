@@ -11,5 +11,5 @@ import SwiftUI
 final class OrderSelectionViewModel: ObservableObject {
 
     @Published var isShowingOrderConfirm: Bool = false
-    @Published var selectedItems: [Int: [String: Any]] = [:]
+    @Published var selectedItems: [OrderItem] = []
 }

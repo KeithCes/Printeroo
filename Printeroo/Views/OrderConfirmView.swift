@@ -14,7 +14,7 @@ struct OrderConfirmView: View {
     @StateObject var viewModel: OrderConfirmViewModel = OrderConfirmViewModel()
     
     @Binding var isShowingOrderConfirm: Bool
-    @Binding var selectedItems: [Int: [String: Any]]
+    @Binding var selectedItems: [OrderItem]
     
     @Binding var selectedImage: UIImage
     
@@ -40,21 +40,33 @@ struct OrderConfirmView: View {
             CustomTitleText(labelText: "SELECTED ITEMS", fontSize: 24)
                 .padding(.top, 20)
             
-            // TODO: this is terrible please change this to by dynamic and not just 1000x
-            // CHECK PlacedOrdersView
             ZStack {
                 VStack {
-                    ForEach(0..<1000) { itemNumber in
-                        if let selectedItem = selectedItems[itemNumber] {
+                    ForEach(self.selectedItems, id: \.itemID) { item in
+                        if let selectedItem = item {
                             HStack {
-                                Text(selectedItem["itemName"] as! String)
+                                Text(selectedItem.itemName)
+                                
+                                //remove from cart
+                                Button {
+                                    guard let index = self.selectedItems.firstIndex(of: item) else {
+                                        return
+                                    }
+                                    selectedItems.remove(at: index)
+                                } label: {
+                                    Image(systemName: "x.circle")
+                                        .resizable()
+                                        .frame(width: 15, height: 15)
+                                        .foregroundColor(CustomColors.darkGray)
+                                        .background(.red.opacity(0.7))
+                                        .cornerRadius(15)
+                                }
                                 
                                 Spacer()
                                 
                                 HStack {
-                                    // have to break it up like this otherwise swift "can't type check in time"... bruh
-                                    let price = selectedItem["price"] as! Double
-                                    let amount = selectedItem["amount"] as! Int
+                                    let price = selectedItem.price
+                                    let amount = selectedItem.amount
                                     let totalCost = price * Double(amount)
                                     let finalString = "$" + String(format: "%.2f", price) + " x " + String(amount) + " ="
                                     
@@ -158,14 +170,15 @@ struct OrderConfirmView: View {
             CameraView()
         }
         .onAppear() {
-            for item in selectedItems.values {
-                viewModel.totalCost += item["price"] as! Double * Double(item["amount"] as! Int)
-                viewModel.itemNamesAmounts[item["itemName"] as! String] = item["amount"] as? Int
+            for item in selectedItems {
+                viewModel.totalCost += item.price * Double(item.amount)
                 
-                if let itemName = (item["itemName"] as? String)?.replacingOccurrences(of: "\"", with: ""),
-                    let itemType = (item["itemType"] as? String)?.replacingOccurrences(of: " ", with: "").lowercased() {
-                    viewModel.itemNamesPictures[itemType + itemName] = item["editedImage"] as? UIImage
-                }
+                let itemName = item.itemName.replacingOccurrences(of: "\"", with: "")
+                let itemType = item.itemType.replacingOccurrences(of: " ", with: "").lowercased()
+                
+                viewModel.itemNamesPictures[itemType + itemName + "_" + item.itemID] = item.editedImage
+                viewModel.itemNamesAmounts[itemType + itemName + "_" + item.itemID] = item.amount
+                
             }
             
             viewModel.pictureTakenInAppDiscount = viewModel.totalCost * 0.1
@@ -180,6 +193,35 @@ struct OrderConfirmView: View {
             
             viewModel.isFromCameraRoll = self.isFromCameraRoll
         }
+        .onChange(of: self.selectedItems, perform: { _ in
+            
+            viewModel.totalCost = 0
+            viewModel.itemNamesPictures = [:]
+            viewModel.itemNamesAmounts = [:]
+            
+            for item in selectedItems {
+                viewModel.totalCost += item.price * Double(item.amount)
+                
+                let itemName = item.itemName.replacingOccurrences(of: "\"", with: "")
+                let itemType = item.itemType.replacingOccurrences(of: " ", with: "").lowercased()
+                
+                viewModel.itemNamesPictures[itemType + itemName + "_" + item.itemID] = item.editedImage
+                viewModel.itemNamesAmounts[itemType + itemName + "_" + item.itemID] = item.amount
+                
+            }
+            
+            viewModel.pictureTakenInAppDiscount = viewModel.totalCost * 0.1
+            
+            viewModel.totalCost -= viewModel.pictureTakenInAppDiscount
+            
+            // TODO: calc tax based on location (change 0.0625 to be dynamic)
+            viewModel.estimatedTax = round(viewModel.totalCost * 0.0625 * 100) / 100
+            
+            viewModel.getUserInfo()
+            viewModel.selectedImage = self.selectedImage
+            
+            viewModel.isFromCameraRoll = self.isFromCameraRoll
+        })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(CustomColors.sand)
         .ignoresSafeArea()

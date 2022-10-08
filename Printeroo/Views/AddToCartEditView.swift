@@ -19,9 +19,9 @@ struct AddToCartEditView: View {
     
     @Binding var isShowingCart: Bool
     @Binding var edittedImage: UIImage
-    @Binding var selectedItems: [Int: [String: Any]]
+    @Binding var selectedItems: [OrderItem]
     
-    init(itemID: Int, price: Double, itemName: String, itemType: String, isShowingCart: Binding<Bool>, selectedItems: Binding<[ Int: [String: Any]]>, edittedImage: Binding<UIImage>) {
+    init(itemID: Int, price: Double, itemName: String, itemType: String, isShowingCart: Binding<Bool>, selectedItems: Binding<[OrderItem]>, edittedImage: Binding<UIImage>) {
         self.itemID = itemID
         self.price = price
         self.itemName = itemName
@@ -44,7 +44,15 @@ struct AddToCartEditView: View {
                 .keyboardType(.numberPad)
             
             Button("ADD TO CART") {
-                self.selectedItems[self.itemID] = ["itemName": self.itemName, "price": self.price, "amount": Int(self.amount) ?? 0, "editedImage": self.edittedImage, "itemType": self.itemType]
+                let orderItem = OrderItem(
+                    itemID: UUID().uuidString,
+                    itemName: self.itemName,
+                    price: self.price,
+                    amount: Int(self.amount) ?? 0,
+                    editedImage: self.edittedImage,
+                    itemType: self.itemType
+                )
+                self.selectedItems.append(orderItem)
                 self.isShowingCart.toggle()
             }
             .font(.system(size: 30, weight: .bold, design: .rounded))

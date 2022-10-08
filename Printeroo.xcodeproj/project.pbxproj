@@ -80,6 +80,7 @@
 		848679A828DF942B00DF4D8B /* demoTakingPicture.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 848679A728DF942A00DF4D8B /* demoTakingPicture.MP4 */; };
 		848679AB28DF94B200DF4D8B /* demoCheckingOut.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 848679A928DF94B200DF4D8B /* demoCheckingOut.MP4 */; };
 		848679AC28DF94B200DF4D8B /* demoCameraRoll.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 848679AA28DF94B200DF4D8B /* demoCameraRoll.MP4 */; };
+		849ECDD528F1F02900BBEFC4 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ECDD428F1F02900BBEFC4 /* OrderItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +163,7 @@
 		848679A728DF942A00DF4D8B /* demoTakingPicture.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demoTakingPicture.MP4; sourceTree = "<group>"; };
 		848679A928DF94B200DF4D8B /* demoCheckingOut.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demoCheckingOut.MP4; sourceTree = "<group>"; };
 		848679AA28DF94B200DF4D8B /* demoCameraRoll.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demoCameraRoll.MP4; sourceTree = "<group>"; };
+		849ECDD428F1F02900BBEFC4 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -368,6 +370,7 @@
 		84248B2B28CA7808001582D0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				849ECDD428F1F02900BBEFC4 /* OrderItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				8416169528CD1FB9002D959A /* Toast.swift in Sources */,
 				841616A528CD22CE002D959A /* StateCodes.swift in Sources */,
 				848679A028DF71E000DF4D8B /* TutorialView.swift in Sources */,
+				849ECDD528F1F02900BBEFC4 /* OrderItem.swift in Sources */,
 				84248B1328C967D7001582D0 /* CustomColors.swift in Sources */,
 				844E873A28D3FDF200325848 /* PlacedOrdersViewModel.swift in Sources */,
 				84248B2528CA6727001582D0 /* View+isHidden.swift in Sources */,

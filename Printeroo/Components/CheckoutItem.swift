@@ -28,11 +28,11 @@ struct CheckoutItem: View {
     @State var croppedImage: UIImage = UIImage()
     @State var cropStyle: CropShapeType = CropShapeType.circle(maskOnly: false)
     
-    @Binding var selectedItems: [Int: [String: Any]]
+    @Binding var selectedItems: [OrderItem]
     @Binding var selectedImage: UIImage
     
     
-    init(itemID: Int, image: UIImage, price: Double, itemName: String, itemType: String, selectedItems: Binding<[ Int: [String: Any]]>, selectedImage: Binding<UIImage>) {
+    init(itemID: Int, image: UIImage, price: Double, itemName: String, itemType: String, selectedItems: Binding<[OrderItem]>, selectedImage: Binding<UIImage>) {
         self.itemID = itemID
         self.image = image
         self.price = price

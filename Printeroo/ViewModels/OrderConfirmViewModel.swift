@@ -63,11 +63,6 @@ final class OrderConfirmViewModel: ObservableObject {
             self.itemImages.append(value)
         }
         
-        //startUploading {
-            /// All the images have been uploaded successfully.
-       //     print("ASSSSS")
-      //  }
-        
         UploadImages.saveImages(imagesArray: self.itemImages, orderPath: "orders/" + userID + "/" + orderID + "/", namesArray: self.itemNamesImages)
         
         let orderImagePath = "orders/" + userID + "/" + orderID + "/" + "orderImage.png"
