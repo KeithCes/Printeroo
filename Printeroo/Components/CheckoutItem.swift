@@ -24,6 +24,7 @@ struct CheckoutItem: View {
     
     @State var isShowingEditor: Bool = false
     @State var isShowingCart: Bool = false
+    @State var isShowingDieCut: Bool = false
     
     @State var croppedImage: UIImage = UIImage()
     @State var cropStyle: CropShapeType = CropShapeType.circle(maskOnly: false)
@@ -91,6 +92,11 @@ struct CheckoutItem: View {
         }) {
             AddToCartEditView(itemID: self.itemID, price: self.price, itemName: self.itemName, itemType: self.itemType, isShowingCart: self.$isShowingCart, selectedItems: self.$selectedItems, edittedImage: self.$croppedImage)
         }
+        .sheet(isPresented: self.$isShowingDieCut, onDismiss: {
+            self.croppedImage = UIImage()
+        }) {
+            AddToCartDieCutView(itemID: self.itemID, price: self.price, itemName: self.itemName, itemType: self.itemType, isShowingDieCut: self.$isShowingDieCut, selectedItems: self.$selectedItems, selectedImage: self.$selectedImage)
+        }
         .fullScreenCover(isPresented: self.$isShowingEditor, onDismiss: {
             
             // if editting done successfully
@@ -120,6 +126,9 @@ struct CheckoutItem: View {
             else if self.itemType == "Heart Sticker" {
                 self.cropStyle = CropShapeType.heart(maskOnly: false)
                 self.isShowingEditor.toggle()
+            }
+            else if self.itemType == "Die-Cut Sticker" {
+                self.isShowingDieCut.toggle()
             }
         }
     }

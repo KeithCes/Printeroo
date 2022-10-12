@@ -81,6 +81,9 @@
 		848679AB28DF94B200DF4D8B /* demoCheckingOut.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 848679A928DF94B200DF4D8B /* demoCheckingOut.MP4 */; };
 		848679AC28DF94B200DF4D8B /* demoCameraRoll.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 848679AA28DF94B200DF4D8B /* demoCameraRoll.MP4 */; };
 		849ECDD528F1F02900BBEFC4 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849ECDD428F1F02900BBEFC4 /* OrderItem.swift */; };
+		84A9DC9028F63C8A0026F841 /* AddToCartDieCutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9DC8F28F63C8A0026F841 /* AddToCartDieCutView.swift */; };
+		84A9DC9228F640AF0026F841 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9DC9128F640AF0026F841 /* CanvasView.swift */; };
+		84A9DC9428F6412C0026F841 /* UIImage+mergeWith.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A9DC9328F6412C0026F841 /* UIImage+mergeWith.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +167,9 @@
 		848679A928DF94B200DF4D8B /* demoCheckingOut.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demoCheckingOut.MP4; sourceTree = "<group>"; };
 		848679AA28DF94B200DF4D8B /* demoCameraRoll.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demoCameraRoll.MP4; sourceTree = "<group>"; };
 		849ECDD428F1F02900BBEFC4 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
+		84A9DC8F28F63C8A0026F841 /* AddToCartDieCutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartDieCutView.swift; sourceTree = "<group>"; };
+		84A9DC9128F640AF0026F841 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		84A9DC9328F6412C0026F841 /* UIImage+mergeWith.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+mergeWith.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				84248B3828CBE303001582D0 /* OrderConfirmView.swift */,
+				84A9DC8F28F63C8A0026F841 /* AddToCartDieCutView.swift */,
 				8423343028F0A86D00B3352E /* AddToCartEditView.swift */,
 				84248B1D28CA4A50001582D0 /* OrderSelectionView.swift */,
 				847215DD28EE4D7D00294F68 /* SelectedImageView.swift */,
@@ -322,6 +329,7 @@
 				84248B1628C96881001582D0 /* Color+Hexcode.swift */,
 				84248B2428CA6727001582D0 /* View+isHidden.swift */,
 				8416169C28CD2122002D959A /* View+Placeholder.swift */,
+				84A9DC9328F6412C0026F841 /* UIImage+mergeWith.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -331,6 +339,7 @@
 			children = (
 				8416169428CD1FB8002D959A /* Toast.swift */,
 				8423343628F0F46000B3352E /* UploadImages.swift */,
+				84A9DC9128F640AF0026F841 /* CanvasView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -545,6 +554,7 @@
 			files = (
 				84248B3928CBE303001582D0 /* OrderConfirmView.swift in Sources */,
 				841616D328D3AB3A002D959A /* ChangePasswordView.swift in Sources */,
+				84A9DC9228F640AF0026F841 /* CanvasView.swift in Sources */,
 				841616C928D3A80D002D959A /* YourProfileViewModel.swift in Sources */,
 				84248B2A28CA75ED001582D0 /* CameraViewModel.swift in Sources */,
 				84248B3D28CBE83D001582D0 /* OrderSelectionViewModel.swift in Sources */,
@@ -571,6 +581,7 @@
 				84248B2F28CA7AB2001582D0 /* ImagePicker.swift in Sources */,
 				8416169928CD2050002D959A /* CreateAccountView.swift in Sources */,
 				841616CD28D3AA0D002D959A /* CustomTextboxTitleText.swift in Sources */,
+				84A9DC9428F6412C0026F841 /* UIImage+mergeWith.swift in Sources */,
 				8416169728CD2002002D959A /* CreateAccountViewModel.swift in Sources */,
 				8416169D28CD2122002D959A /* View+Placeholder.swift in Sources */,
 				84248B3728CBBC3A001582D0 /* CameraPreview.swift in Sources */,
@@ -591,6 +602,7 @@
 				841616D728D3F7E0002D959A /* PlacedOrdersView.swift in Sources */,
 				841616A328CD2265002D959A /* CustomSecureTextbox.swift in Sources */,
 				841616C528D106FF002D959A /* UserInfo.swift in Sources */,
+				84A9DC9028F63C8A0026F841 /* AddToCartDieCutView.swift in Sources */,
 				84248B1028C967A3001582D0 /* PrelogView.swift in Sources */,
 				848679A428DF891E00DF4D8B /* LoopingPlayer.swift in Sources */,
 			);

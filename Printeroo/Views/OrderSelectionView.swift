@@ -41,7 +41,7 @@ struct OrderSelectionView: View {
                     }
                     ScrollView(.horizontal) {
                         HStack {
-                            CheckoutItem(itemID: 401, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "Best Fit", itemType: "Die-Cut", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
+                            CheckoutItem(itemID: 401, image: UIImage(named: "Test") ?? UIImage(), price: 5, itemName: "Best Fit", itemType: "Die-Cut Sticker", selectedItems: $viewModel.selectedItems, selectedImage: self.$selectedImage)
                         }
                     }
                 }

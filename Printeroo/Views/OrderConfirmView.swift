@@ -202,7 +202,7 @@ struct OrderConfirmView: View {
             for item in selectedItems {
                 viewModel.totalCost += item.price * Double(item.amount)
                 
-                let itemName = item.itemName.replacingOccurrences(of: "\"", with: "")
+                let itemName = item.itemName.replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: " ", with: "").lowercased()
                 let itemType = item.itemType.replacingOccurrences(of: " ", with: "").lowercased()
                 
                 viewModel.itemNamesPictures[itemType + itemName + "_" + item.itemID] = item.editedImage
