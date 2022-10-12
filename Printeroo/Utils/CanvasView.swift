@@ -18,12 +18,10 @@ struct CanvasView {
 
 extension CanvasView: UIViewRepresentable {
     func makeUIView(context: Context) -> PKCanvasView {
-        canvasView.tool = PKInkingTool(.pen, color: .gray, width: 10)
-        #if targetEnvironment(simulator)
+        canvasView.tool = PKInkingTool(.marker, color: .red, width: 10)
         canvasView.drawingPolicy = .anyInput
-        #endif
         canvasView.delegate = context.coordinator
-        showToolPicker()
+        canvasView.becomeFirstResponder()
         self.canvasView.backgroundColor = UIColor.clear
         return canvasView
     }
@@ -32,14 +30,6 @@ extension CanvasView: UIViewRepresentable {
 
     func makeCoordinator() -> Coordinator {
         Coordinator(canvasView: $canvasView, onSaved: onSaved)
-    }
-}
-
-private extension CanvasView {
-    func showToolPicker() {
-        toolPicker.setVisible(true, forFirstResponder: canvasView)
-        toolPicker.addObserver(canvasView)
-        canvasView.becomeFirstResponder()
     }
 }
 

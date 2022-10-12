@@ -41,8 +41,10 @@ struct AddToCartDieCutView: View {
                 .resizable()
                 .cornerRadius(10)
                 .scaledToFit()
-                .frame(width: 200, height: 200)
-                .overlay(CanvasView(canvasView: $canvasView, onSaved: onChanged), alignment: .bottomLeading)
+                .frame(width: CustomDimensions.width - 80)
+                .overlay(CanvasView(
+                    canvasView: $canvasView,
+                    onSaved: onChanged), alignment: .bottomLeading)
             
             CustomTextbox(field: self.$amount, placeholderText: "Enter how many you'd like")
                 .padding(.bottom, 30)
@@ -81,12 +83,5 @@ struct AddToCartDieCutView: View {
     private func onChanged() -> Void {
         self.drawingOnImage = canvasView.drawing.image(
             from: canvasView.bounds, scale: UIScreen.main.scale)
-    }
-    
-    private func initCanvas() -> Void {
-        self.canvasView = PKCanvasView();
-        self.canvasView.isOpaque = false
-        self.canvasView.backgroundColor = UIColor.clear
-        self.canvasView.becomeFirstResponder()
     }
 }
