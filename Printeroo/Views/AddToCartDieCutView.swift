@@ -50,6 +50,17 @@ struct AddToCartDieCutView: View {
                 .padding(.bottom, 30)
                 .keyboardType(.numberPad)
             
+            Button("CLEAR SELECTION") {
+                self.canvasView.drawing = PKDrawing()
+            }
+            .font(.system(size: 30, weight: .bold, design: .rounded))
+            .foregroundColor(.white)
+            .background(Rectangle()
+                .fill(CustomColors.darkGray.opacity(0.6))
+                .frame(width: 250, height: 50)
+                .cornerRadius(15)
+            )
+            
             Button("ADD TO CART") {
                 let orderItem = OrderItem(
                     itemID: UUID().uuidString,
