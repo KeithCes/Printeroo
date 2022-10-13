@@ -33,9 +33,6 @@ final class TutorialViewModel: ObservableObject {
     
     @Published var isUserLoggedOut: Bool = false
     
-    @Published var isShowingToast: Bool = false
-    @Published var toastMessage: String = "Error"
-    
     @Published var userInfo: UserInfo?
     
     

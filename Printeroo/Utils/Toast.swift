@@ -30,7 +30,7 @@ struct Toast: ViewModifier {
     
     private var toastView: some View {
         VStack {
-            Spacer()
+         //   Spacer()
             if isShowing {
                 Group {
                     Text(message)
