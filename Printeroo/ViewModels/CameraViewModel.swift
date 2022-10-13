@@ -29,11 +29,7 @@ final class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDe
     @Published var retakeTapped = false
     
     @Published var isShowingSelectedImage: Bool = false
-    @Published var isShowingEditor: Bool = false
     @Published var isShowingSettings: Bool = false
-    
-    @Published var isCropPressed: Bool = false
-    @Published var cropStyle: CropShapeType = CropShapeType.rect
     
     @Published var isFromCameraRoll = false
     
@@ -168,7 +164,6 @@ final class CameraViewModel: NSObject, ObservableObject, AVCapturePhotoCaptureDe
                 }
                 self.isSaved = false
                 self.retakeTapped = false
-                self.isCropPressed = false
             }
         }
     }
