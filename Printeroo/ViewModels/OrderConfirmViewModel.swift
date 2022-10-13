@@ -26,7 +26,8 @@ final class OrderConfirmViewModel: ObservableObject {
     
     @Published var itemNamesAmounts: [String: Int] = [:]
     @Published var itemNamesPictures: [String: UIImage] = [:]
-    @Published var itemNamesImages: [String] = []
+    
+    @Published var itemNamesOfImages: [String] = []
     @Published var itemImages: [UIImage] = []
     
     @Published var isOrderComplete: Bool = false
@@ -59,11 +60,11 @@ final class OrderConfirmViewModel: ObservableObject {
         let storageRef = storage.reference()
         
         for (key, value) in itemNamesPictures {
-            self.itemNamesImages.append(key)
+            self.itemNamesOfImages.append(key)
             self.itemImages.append(value)
         }
         
-        UploadImages.saveImages(imagesArray: self.itemImages, orderPath: "orders/" + userID + "/" + orderID + "/", namesArray: self.itemNamesImages)
+        UploadImages.saveImages(imagesArray: self.itemImages, orderPath: "orders/" + userID + "/" + orderID + "/", namesArray: self.itemNamesOfImages)
         
         let orderImagePath = "orders/" + userID + "/" + orderID + "/" + "orderImage.png"
         let orderImageRef = storageRef.child(orderImagePath)
@@ -223,7 +224,7 @@ final class OrderConfirmViewModel: ObservableObject {
                 return
             }
             
-            let orderImagePath = self.itemNamesImages[index] + ".png"
+            let orderImagePath = self.itemNamesOfImages[index] + ".png"
             let orderImageRef = storageRef.child(orderImagePath)
             
             orderImageRef.putData(data, metadata: nil) { (metadata, error) in
